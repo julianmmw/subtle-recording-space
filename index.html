@@ -11,10 +11,10 @@
       color-scheme: dark;
       --bg: #020721;
       --surface: #07112f;
-      --text: #f2efe6;
-      --muted: #c1c5cf;
+      --text: #dde1e7;
+      --muted: #d5d8de;
       --line: #26314d;
-      --olive: #b6b995;
+      --olive: #d8dc9d;
       --clay: #d6a27f;
       --serif: Georgia, "Times New Roman", serif;
       --sans: "Segoe UI", Arial, sans-serif;
@@ -119,7 +119,7 @@
     .hero-title { margin-bottom: 0; }
     .hero-tagline {
       margin: 0 0 24px;
-      color: #ffffff;
+      color: #dde1e7;
       font-family: var(--serif);
       font-size: clamp(1.25rem, 3.2vw, 2rem);
       line-height: 1.15;
@@ -140,14 +140,15 @@
       padding: 0 20px;
       border: 1px solid var(--olive);
       border-radius: 2px;
-      background: var(--olive);
-      color: #30221d;
+      background: #25d366;
+      border-color: #25d366;
+      color: #082012;
       font-size: .88rem;
       font-weight: 650;
       text-decoration: none;
       transition: background .2s ease, color .2s ease;
     }
-    .button:hover { background: var(--bg); color: var(--text); }
+    .button:hover { background: #4bdc82; color: #082012; border-color: #4bdc82; }
     .button svg { width: 18px; height: 18px; }
     .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .77rem; }
 
@@ -190,8 +191,8 @@
       color: var(--text);
     }
     .contact-copy { max-width: 500px; margin: 0; color: var(--text); font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
-    .contact .button { border-color: var(--olive); background: var(--olive); }
-    .contact .button:hover { background: transparent; color: var(--text); }
+    .contact .button { border-color: #25d366; background: #25d366; }
+    .contact .button:hover { background: #4bdc82; color: #082012; }
     .contact .button { flex: 0 0 auto; }
     footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
@@ -202,7 +203,13 @@
       .hero-content { max-width: 54%; }
     }
     @media (max-width: 699px) {
-      .hero-image { display: none; }
+      .hero-image {
+        position: static;
+        width: min(70vw, 260px);
+        height: auto;
+        margin: 18px 0 24px;
+        transform: none;
+      }
     }
     @media (max-width: 600px) {
       .wrap { width: min(100% - 32px, 1080px); }
@@ -227,7 +234,7 @@
   <header>
     <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
       <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
-        <span class="wordmark">Subtle</span>
+        <span class="wordmark">Subtle!</span>
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
@@ -243,8 +250,9 @@
     <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
       <div class="hero-content">
         <p class="eyebrow" data-i18n="heroCategory">Espacio acústico: ensambles, composición, arreglos y grabación de música.</p>
-        <h1 class="hero-title" id="hero-title">Subtle</h1>
+        <h1 class="hero-title" id="hero-title">Subtle!</h1>
         <p class="hero-tagline"><em data-i18n="heroTagline">Music rehersal room</em></p>
+        <img class="hero-image" src="vitrail-logo.png" alt="" aria-hidden="true">
         <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
         <p class="hero-copy" data-i18n="heroCopy">Componé música con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.</p>
         <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer">
@@ -256,7 +264,6 @@
         </a>
         <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
       </div>
-      <img class="hero-image" src="vitrail-logo.png" alt="" aria-hidden="true">
     </section>
 
     <section id="equipamiento" aria-label="Instrumentos y equipamiento" data-i18n-aria="gearSectionLabel">
@@ -318,7 +325,7 @@
   <footer>
     <div class="wrap">
       <span class="brand-lockup">
-        <span class="wordmark">Subtle</span>
+        <span class="wordmark">Subtle!</span>
       </span>
       <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
     </div>
