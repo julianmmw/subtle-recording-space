@@ -58,14 +58,7 @@
     }
     .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
     .brand-lockup .wordmark { text-decoration: none; }
-    .brand-logo {
-      display: block;
-      width: 30px;
-      height: 30px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+    .brand-logo { display: block; width: 36px; height: 36px; flex: 0 0 auto; }
     .nav-link {
       color: var(--muted);
       font-size: .84rem;
@@ -221,7 +214,8 @@
       .gear-item { min-height: 140px; padding: 18px 14px; }
       .gear-number { margin-bottom: 20px; }
       .approach { grid-template-columns: 1fr; gap: 14px; }
-      .nav-actions { gap: 12px; }
+      .nav, .nav-actions { gap: 8px; }
+      .brand-lockup { gap: 7px; }
       .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
       footer .wrap { flex-direction: column; gap: 4px; }
     }
@@ -235,8 +229,8 @@
   <header>
     <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
       <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
-        <span class="wordmark">Subtle</span>
         <img class="brand-logo" src="vitrail-logo.png" alt="" aria-hidden="true">
+        <span class="wordmark">Subtle</span>
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
@@ -326,8 +320,8 @@
   <footer>
     <div class="wrap">
       <span class="brand-lockup">
-        <span class="wordmark">Subtle</span>
         <img class="brand-logo" src="vitrail-logo.png" alt="" aria-hidden="true">
+        <span class="wordmark">Subtle</span>
       </span>
       <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
     </div>
