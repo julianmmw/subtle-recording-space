@@ -1,12 +1,11 @@
 # Subtle
 
-Sitio estático de una sola página. No necesita instalar dependencias ni compilarse: editá `index.html` y publicá los cambios.
+Sitio estático de una sola página. No necesita instalar dependencias ni compilarse: editá `index.html` y guardá los cambios en la rama `main`.
 
-## Publicar gratis con GitHub Pages
+## Sitio publicado
 
-1. Creá un repositorio en GitHub y subí `index.html` (y este archivo, si querés).
-2. En el repositorio, abrí **Settings → Pages**.
-3. En **Build and deployment**, elegí **Deploy from a branch**, seleccioná `main` y la carpeta `/ (root)`, y guardá.
-4. GitHub Pages publicará el sitio en una URL como `https://tu-usuario.github.io/nombre-del-repositorio/`. Los cambios que subas a esa rama se publicarán automáticamente.
+[https://julianmmw.github.io/subtle-recording-space/](https://julianmmw.github.io/subtle-recording-space/)
+
+GitHub Pages publica automáticamente el contenido de `main` desde la carpeta raíz. Para actualizarlo, editá `index.html` en GitHub y confirmá los cambios; la publicación se actualiza al terminar el despliegue.
 
 No se incluyeron fotos del espacio. Cuando estén disponibles, se pueden agregar reemplazando o complementando el diseño abstracto.
