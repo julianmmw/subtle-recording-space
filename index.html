@@ -215,7 +215,9 @@
       .gear-item { min-height: 140px; padding: 18px 14px; }
       .gear-number { margin-bottom: 20px; }
       .approach { grid-template-columns: 1fr; gap: 14px; }
-      .nav, .nav-actions { gap: 8px; }
+      .nav, .nav-actions { gap: 4px; }
+      .language-switch { gap: 1px; }
+      .language-switch button { min-width: 25px; padding-inline: 2px; }
       .brand-lockup { gap: 7px; }
       .nav-link { display: none; }
       .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
@@ -239,6 +241,8 @@
         <div class="language-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="languageLabel">
           <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="false">SP</button>
           <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="true">EN</button>
+          <button type="button" data-language="fr" aria-label="Français" title="Français" aria-pressed="false">FR</button>
+          <button type="button" data-language="de" aria-label="Deutsch" title="Deutsch" aria-pressed="false">DE</button>
           <button type="button" data-language="pt" aria-label="Português" title="Português" aria-pressed="false">PT</button>
         </div>
       </div>
@@ -443,6 +447,78 @@
         contactLabel: "Fale com a Subtle pelo WhatsApp no +54 11 4159 0433",
         contactButton: "+54 11 4159 0433",
         footerLine: "Um espaço para ouvirmos melhor uns aos outros."
+      },
+      fr: {
+        pageTitle: "Subtle — Ensembles musicaux, composition, arrangements et enregistrement.",
+        description: "Subtle — ensembles musicaux, composition, arrangements, enregistrement, mixage et création de contenu multimédia à Buenos Aires, en Argentine, avec des instruments et tout le nécessaire pour enregistrer votre son de manière professionnelle.",
+        navLabel: "Navigation principale",
+        homeLabel: "Subtle, accueil",
+        navContact: "Contact",
+        languageLabel: "Choisir la langue",
+        gearSectionLabel: "Instruments et équipements",
+        heroCategory: "Ensembles musicaux, composition, arrangements, enregistrement, mixage et création de contenu multimédia, basés à Buenos Aires, en Argentine.",
+        heroTagline: "Espace acoustique, studio d'enregistrement.",
+        heroManifesto: "Un lieu pour que votre musique vous inspire.",
+        heroCopy: "Composez de la musique avec des instruments et tout le nécessaire pour donner à votre son une qualité d'enregistrement professionnelle.",
+        heroCta: "Contactez-nous sur WhatsApp",
+        heroNote: "Dites-nous comment et avec qui vous aimeriez enregistrer votre projet.",
+        gearIntro: "Des instruments et des outils pour explorer et trouver le son de la musique à venir.",
+        gearKeys: "01 / CLAVIERS",
+        gearRhythm: "02 / RYTHME",
+        gearStrings: "03 / CORDES",
+        gearRecording: "04 / STUDIO",
+        gearPianos: "Pianos",
+        gearDrums: "Batterie",
+        gearGuitars: "Guitares",
+        gearRecordingTitle: "Enregistrement",
+        gearPianosDetails: "Piano acoustique<br>Piano électrique<br>Claviers",
+        gearDrumsDetails: "Batterie<br>Percussions",
+        gearGuitarsDetails: "Guitares acoustiques, classiques et électriques<br>Amplificateurs",
+        gearRecordingDetails: "Microphones<br>Logiciels d'édition et de mixage",
+        productionsTitle: "À venir ! Productions multimédias : écriture de scénarios pour des clips vidéo et réalisation de reels et de documentaires.",
+        approachEyebrow: "Avec du temps et de l'attention",
+        approachTitle: "Votre projet, à votre façon.",
+        approachCopy: "D'une première idée à une session complète, Subtle est un espace pour expérimenter et donner forme à ce que vous avez en tête. Avec le rythme comme base, nous explorons les meilleures musiques classiques et folkloriques de chaque région, les rythmes fondamentaux d'Afrique et d'Amérique latine, ainsi que le groove du jazz et du blues et l'ensemble de la musique orchestrale de toutes les époques. Contactez-nous pour parler de votre projet et organiser une visite.",
+        contactCopy: "Écrivez-nous pour nous dire quel est votre projet en ce moment.",
+        contactLabel: "Contacter Subtle sur WhatsApp au +54 11 4159 0433",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "Un espace pour mieux nous écouter."
+      },
+      de: {
+        pageTitle: "Subtle — Musikensembles, Komposition, Arrangement und Aufnahme.",
+        description: "Subtle — Musikensembles, Komposition, Arrangement, Aufnahme, Mischung und Erstellung multimedialer Inhalte in Buenos Aires, Argentinien, mit Instrumenten und allem, was du brauchst, um deinen Sound professionell aufzunehmen.",
+        navLabel: "Hauptnavigation",
+        homeLabel: "Subtle, Startseite",
+        navContact: "Kontakt",
+        languageLabel: "Sprache auswählen",
+        gearSectionLabel: "Instrumente und Ausstattung",
+        heroCategory: "Musikensembles, Komposition, Arrangement, Aufnahme, Mischung und Erstellung multimedialer Inhalte in Buenos Aires, Argentinien.",
+        heroTagline: "Akustischer Proberaum, Tonstudio.",
+        heroManifesto: "Ein Ort, an dem deine Musik dich inspiriert.",
+        heroCopy: "Komponiere Musik mit Instrumenten und allem, was du brauchst, um deinen Sound professionell aufzunehmen.",
+        heroCta: "Schreib uns auf WhatsApp",
+        heroNote: "Erzähl uns, wie und mit wem du dein Projekt aufnehmen möchtest.",
+        gearIntro: "Instrumente und Werkzeuge, um zu experimentieren und den Klang der Musik von morgen zu finden.",
+        gearKeys: "01 / TASTEN",
+        gearRhythm: "02 / RHYTHMUS",
+        gearStrings: "03 / SAITEN",
+        gearRecording: "04 / STUDIO",
+        gearPianos: "Klaviere",
+        gearDrums: "Schlagzeug",
+        gearGuitars: "Gitarren",
+        gearRecordingTitle: "Aufnahme",
+        gearPianosDetails: "Akustisches Klavier<br>E-Piano<br>Keyboards",
+        gearDrumsDetails: "Schlagzeug<br>Perkussion",
+        gearGuitarsDetails: "Akustik-, Konzert- und E-Gitarren<br>Verstärker",
+        gearRecordingDetails: "Mikrofone<br>Software für Schnitt und Mischung",
+        productionsTitle: "Demnächst! Multimediaproduktionen: Drehbücher für Musikvideos sowie die Produktion von Reels und Dokumentarfilmen.",
+        approachEyebrow: "Mit Zeit und Aufmerksamkeit",
+        approachTitle: "Dein Projekt, dein Weg.",
+        approachCopy: "Von einer ersten Idee bis zu einer ganzen Session ist Subtle ein Ort, an dem du ausprobieren und deine Vorstellungen umsetzen kannst. Mit Rhythmus als Grundlage entdecken wir die beste klassische und folkloristische Musik jeder Region, die grundlegenden Rhythmen Afrikas und Lateinamerikas sowie den Groove von Jazz und Blues und die gesamte Orchestermusik aller Epochen. Schreib uns, um über dein Projekt zu sprechen und einen Besuch zu vereinbaren.",
+        contactCopy: "Erzähl uns, woran du gerade arbeitest.",
+        contactLabel: "Subtle über WhatsApp unter +54 11 4159 0433 kontaktieren",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "Ein Ort, an dem wir einander besser zuhören."
       }
     };
 
