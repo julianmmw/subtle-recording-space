@@ -58,6 +58,7 @@
     }
     .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
     .brand-lockup .wordmark { text-decoration: none; }
+    .svg-assets { position: absolute; width: 0; height: 0; overflow: hidden; }
     .disco-ball { display: block; width: 78px; height: 78px; flex: 0 0 auto; }
     .disco-ball-small { width: 28px; height: 28px; }
     .nav-link {
@@ -158,40 +159,6 @@
     .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .77rem; }
 
     section { padding-block: 82px; border-top: 1px solid var(--line); }
-    .groove-strip {
-      position: relative;
-      overflow: hidden;
-      padding-block: 30px;
-      border: 0;
-      background: var(--surface);
-      color: var(--text);
-    }
-    .groove-inner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .groove-copy { max-width: 430px; margin: 0; color: var(--muted); font-family: var(--serif); font-size: 1.05rem; line-height: 1.45; }
-    .groove-strip .eyebrow { color: var(--olive); }
-    .groove-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .genre-tag {
-      display: inline-flex;
-      min-height: 30px;
-      align-items: center;
-      padding: 3px 11px;
-      border-radius: 2px;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--olive);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-    }
-    .genre-tag:nth-child(2) { border-color: var(--olive); background: var(--olive); color: var(--bg); }
-    .genre-tag:nth-child(3) { border-color: var(--clay); color: var(--clay); }
-    .genre-tag:nth-child(4) { border-color: var(--olive); color: var(--olive); }
     .section-heading { max-width: 600px; margin-bottom: 36px; }
     h2 {
       margin-bottom: 12px;
@@ -250,7 +217,6 @@
       .gear-number { margin-bottom: 20px; }
       .approach { grid-template-columns: 1fr; gap: 14px; }
       .nav-actions { gap: 12px; }
-      .groove-inner { align-items: flex-start; flex-direction: column; gap: 14px; }
       .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
       footer .wrap { flex-direction: column; gap: 4px; }
     }
@@ -261,19 +227,59 @@
   </style>
 </head>
 <body>
+  <svg class="svg-assets" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="disco-base" cx="30%" cy="23%" r="82%">
+        <stop offset="0" stop-color="#fafbf1"/>
+        <stop offset=".4" stop-color="#d6ddcf"/>
+        <stop offset="1" stop-color="#535d56"/>
+      </radialGradient>
+      <pattern id="disco-tiles" width="7" height="7" patternUnits="userSpaceOnUse">
+        <rect x=".25" y=".25" width="6.5" height="6.5" rx=".25" fill="#aab5ad"/>
+        <path d="M.6 6.4V.6h5.8" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width=".65"/>
+        <path d="M6.4 1v5.4H1" fill="none" stroke="#46524a" stroke-opacity=".8" stroke-width=".55"/>
+        <path d="M1 1h2.3v2.3H1z" fill="#fff" fill-opacity=".72"/>
+        <path d="M3.7 1h2.1v2.1H3.7z" fill="#78877d" fill-opacity=".55"/>
+        <path d="M1 3.8h2.1v2.1H1z" fill="#68766d" fill-opacity=".62"/>
+        <path d="M3.8 3.8h2.3v2.3H3.8z" fill="#edf1e9" fill-opacity=".68"/>
+      </pattern>
+      <radialGradient id="disco-shade" cx="34%" cy="25%" r="78%">
+        <stop offset=".48" stop-color="#fff" stop-opacity="0"/>
+        <stop offset="1" stop-color="#10120f" stop-opacity=".62"/>
+      </radialGradient>
+      <linearGradient id="disco-reflection" x1="0" y1="0" x2="1" y2="1">
+        <stop offset=".28" stop-color="#fff" stop-opacity="0"/>
+        <stop offset=".46" stop-color="#fff" stop-opacity=".08"/>
+        <stop offset=".53" stop-color="#fff" stop-opacity=".72"/>
+        <stop offset=".6" stop-color="#fff" stop-opacity=".14"/>
+        <stop offset=".78" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <clipPath id="disco-clip">
+        <circle cx="32" cy="38" r="22"/>
+      </clipPath>
+      <symbol id="disco-ball-icon" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="62" rx="13" ry="1.3" fill="#080908" fill-opacity=".5"/>
+        <path d="M32 2v7" stroke="#b6b995" stroke-width="1.5"/>
+        <path d="M25 8h14l2 5H23z" fill="#8f9480" stroke="#f0eee6" stroke-width="1"/>
+        <circle cx="32" cy="38" r="22" fill="url(#disco-base)" stroke="#f0eee6" stroke-width="1.2"/>
+        <g clip-path="url(#disco-clip)">
+          <circle cx="32" cy="38" r="22" fill="url(#disco-tiles)"/>
+          <path d="M8 16h48v44H8z" fill="url(#disco-reflection)"/>
+          <circle cx="32" cy="38" r="22" fill="url(#disco-shade)"/>
+          <path d="M13 31c3-10 11-17 20-19" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.7"/>
+          <path d="M15 32c3-7 8-12 14-15" fill="none" stroke="#fff" stroke-opacity=".58" stroke-width=".7"/>
+          <path d="m18 23 1.2 3.1 3.1 1.2-3.1 1.2-1.2 3.1-1.2-3.1-3.1-1.2 3.1-1.2z" fill="#fff" fill-opacity=".85"/>
+          <path d="m43 38 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="#fff" fill-opacity=".72"/>
+        </g>
+        <circle cx="32" cy="38" r="22" fill="none" stroke="#f0eee6" stroke-opacity=".8" stroke-width="1"/>
+      </symbol>
+    </defs>
+  </svg>
   <header>
     <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
       <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
         <span class="wordmark">Subtle</span>
-        <svg class="disco-ball disco-ball-small" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 2v7M23 10h18" stroke="#b6b995" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="32" cy="35" r="23" fill="#b6b995" stroke="#f0eee6" stroke-width="1.5"/>
-          <g fill="none" stroke="#171915" stroke-opacity=".55" stroke-width="1.1">
-            <path d="M10 31h44M12 40h40M17 48h30"/>
-            <path d="M23 14c-9 12-9 30 0 42M32 12v46M41 14c9 12 9 30 0 42"/>
-          </g>
-          <path d="m20 23 4 2m17-5 4 2m-27 17 4 1m21 0 4-1" fill="none" stroke="#f0eee6" stroke-linecap="round" stroke-width="1.5"/>
-        </svg>
+        <svg class="disco-ball disco-ball-small" viewBox="0 0 64 64" aria-hidden="true"><use href="#disco-ball-icon"/></svg>
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
@@ -291,15 +297,7 @@
         <p class="eyebrow" data-i18n="heroCategory">Espacio de ensamble y grabación</p>
         <h1 class="hero-title" id="hero-title">
           Subtle
-          <svg class="disco-ball" viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M32 2v7M23 10h18" stroke="#b6b995" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="32" cy="35" r="23" fill="#b6b995" stroke="#f0eee6" stroke-width="1.5"/>
-            <g fill="none" stroke="#171915" stroke-opacity=".55" stroke-width="1.1">
-              <path d="M10 31h44M12 40h40M17 48h30"/>
-              <path d="M23 14c-9 12-9 30 0 42M32 12v46M41 14c9 12 9 30 0 42"/>
-            </g>
-            <path d="m20 23 4 2m17-5 4 2m-27 17 4 1m21 0 4-1" fill="none" stroke="#f0eee6" stroke-linecap="round" stroke-width="1.5"/>
-          </svg>
+          <svg class="disco-ball" viewBox="0 0 64 64" aria-hidden="true"><use href="#disco-ball-icon"/></svg>
         </h1>
         <p class="hero-tagline"><em data-i18n="heroTagline">rehearsal room</em></p>
         <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
@@ -312,21 +310,6 @@
           <span data-i18n="heroCta">Hablemos por WhatsApp</span>
         </a>
         <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
-      </div>
-    </section>
-
-    <section class="groove-strip" aria-label="Referencias musicales" data-i18n-aria="grooveLabel">
-      <div class="wrap groove-inner">
-        <div>
-          <p class="eyebrow" data-i18n="grooveEyebrow">Un groove entre décadas</p>
-          <p class="groove-copy" data-i18n="grooveCopy">Ritmos cálidos de los 70, energía bailable de los 80 y espacio para que cada proyecto encuentre su pulso.</p>
-        </div>
-        <div class="groove-tags" aria-label="Disco, soul, pop y dance" data-i18n-aria="genreLabel">
-          <span class="genre-tag">DISCO</span>
-          <span class="genre-tag">SOUL</span>
-          <span class="genre-tag">POP</span>
-          <span class="genre-tag">DANCE</span>
-        </div>
       </div>
     </section>
 
@@ -392,15 +375,7 @@
     <div class="wrap">
       <span class="brand-lockup">
         <span class="wordmark">Subtle</span>
-        <svg class="disco-ball disco-ball-small" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 2v7M23 10h18" stroke="#b6b995" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="32" cy="35" r="23" fill="#b6b995" stroke="#f0eee6" stroke-width="1.5"/>
-          <g fill="none" stroke="#171915" stroke-opacity=".55" stroke-width="1.1">
-            <path d="M10 31h44M12 40h40M17 48h30"/>
-            <path d="M23 14c-9 12-9 30 0 42M32 12v46M41 14c9 12 9 30 0 42"/>
-          </g>
-          <path d="m20 23 4 2m17-5 4 2m-27 17 4 1m21 0 4-1" fill="none" stroke="#f0eee6" stroke-linecap="round" stroke-width="1.5"/>
-        </svg>
+        <svg class="disco-ball disco-ball-small" viewBox="0 0 64 64" aria-hidden="true"><use href="#disco-ball-icon"/></svg>
       </span>
       <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
     </div>
@@ -414,10 +389,6 @@
         homeLabel: "Subtle, inicio",
         navContact: "Contacto",
         languageLabel: "Seleccionar idioma",
-        grooveLabel: "Referencias musicales",
-        genreLabel: "Disco, soul, pop y dance",
-        grooveEyebrow: "Un groove entre décadas",
-        grooveCopy: "Ritmos cálidos de los 70, energía bailable de los 80 y espacio para que cada proyecto encuentre su pulso.",
         heroCategory: "Espacio de ensamble y grabación",
         heroTagline: "rehearsal room",
         heroManifesto: "Un lugar para que tu música te inspire.",
@@ -451,10 +422,6 @@
         homeLabel: "Subtle, home",
         navContact: "Contact",
         languageLabel: "Choose language",
-        grooveLabel: "Musical influences",
-        genreLabel: "Disco, soul, pop and dance music",
-        grooveEyebrow: "A groove across decades",
-        grooveCopy: "Warm 70s rhythms, 80s dance energy, and room for every project to find its own pulse.",
         heroCategory: "Rehearsal and recording space",
         heroTagline: "rehearsal room",
         heroManifesto: "A place for your music to inspire you.",
