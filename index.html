@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2efe6">
+  <meta name="description" content="Subtle — espacio acústico para ensambles, composición, arreglos y grabación de música.">
+  <title>Subtle — espacio acústico para ensambles, composición, arreglos y grabación de música</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f2efe6;
+      --surface: #e7e2d4;
+      --text: #292b25;
+      --muted: #68685d;
+      --line: #cfcbbd;
+      --olive: #747a50;
+      --clay: #a66c50;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--olive); outline-offset: 5px; }
+    .wrap { width: min(100% - 40px, 1080px); margin-inline: auto; }
+    .eyebrow {
+      color: var(--olive);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    header {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .wordmark {
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+    .brand-lockup .wordmark { text-decoration: none; }
+    .brand-logo { display: block; width: 36px; height: 36px; flex: 0 0 auto; }
+    .nav-link {
+      color: var(--muted);
+      font-size: .84rem;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: var(--clay); }
+    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .language-switch { display: flex; align-items: center; gap: 5px; }
+    .language-switch button {
+      min-width: 36px;
+      height: 34px;
+      padding-inline: 8px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      line-height: 1;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .language-switch button:hover { color: var(--text); border-color: var(--olive); }
+    .language-switch button[aria-pressed="true"] { border-color: var(--olive); background: var(--olive); color: var(--bg); }
+    .language-switch button:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; }
+
+    .hero {
+      min-height: 570px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-block: 90px;
+    }
+    .hero-image {
+      display: block;
+      position: absolute;
+      width: min(40%, 420px);
+      height: auto;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .hero-content { max-width: 700px; }
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      max-width: 680px;
+      margin-bottom: 24px;
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 11vw, 7.5rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+    .hero-title { margin-bottom: 0; }
+    .hero-tagline {
+      margin: 0 0 24px;
+      color: var(--olive);
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 5vw, 2.7rem);
+      line-height: 1.15;
+    }
+    .hero-manifesto {
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 4vw, 1.8rem);
+      line-height: 1.25;
+    }
+    .hero-copy { max-width: 500px; margin-bottom: 32px; color: var(--muted); font-size: 1.03rem; }
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 0 20px;
+      border: 1px solid var(--olive);
+      border-radius: 2px;
+      background: var(--olive);
+      color: #30221d;
+      font-size: .88rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+    .button:hover { background: var(--bg); color: var(--text); }
+    .button svg { width: 18px; height: 18px; }
+    .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .77rem; }
+
+    section { padding-block: 82px; border-top: 1px solid var(--line); }
+    .section-heading { max-width: 600px; margin-bottom: 36px; }
+    h2 {
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 7vw, 3.7rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+    .section-intro { max-width: 490px; margin-bottom: 0; color: var(--muted); }
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .gear-item { min-height: 150px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .72rem; letter-spacing: .12em; }
+    .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
+    .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.8; }
+
+    .approach {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .approach p { max-width: 480px; margin: 0; color: var(--muted); }
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 34px;
+      background: var(--surface);
+      color: var(--text);
+    }
+    .contact-copy { max-width: 500px; margin: 0; color: var(--text); font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
+    .contact .button { border-color: var(--olive); background: var(--olive); }
+    .contact .button:hover { background: transparent; color: var(--text); }
+    .contact .button { flex: 0 0 auto; }
+    footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
+
+    @media (min-width: 700px) {
+      .gear-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .gear-item { min-height: 180px; }
+      .hero-content { max-width: 54%; }
+    }
+    @media (max-width: 699px) {
+      .hero-image { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 32px, 1080px); }
+      header { height: 66px; }
+      .hero { min-height: 570px; padding-block: 72px; }
+      section { padding-block: 64px; }
+      .gear-item { min-height: 140px; padding: 18px 14px; }
+      .gear-number { margin-bottom: 20px; }
+      .approach { grid-template-columns: 1fr; gap: 14px; }
+      .nav, .nav-actions { gap: 8px; }
+      .brand-lockup { gap: 7px; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
+      footer .wrap { flex-direction: column; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
+      <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
+        <img class="brand-logo" src="vitrail-logo.png" alt="" aria-hidden="true">
+        <span class="wordmark">Subtle</span>
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
+        <div class="language-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="languageLabel">
+          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">AR</button>
+          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="heroCategory">Espacio acústico para ensambles, composición, arreglos y grabación de música</p>
+        <h1 class="hero-title" id="hero-title">Subtle</h1>
+        <p class="hero-tagline"><em data-i18n="heroTagline">Music rehearsal room</em></p>
+        <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
+        <p class="hero-copy" data-i18n="heroCopy">Componé música con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.</p>
+        <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L3.5 20l1.2-4.5a8.3 8.3 0 1 1 15.8-3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.8 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.8 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-1.1-.1-2.5-.8-3.8-1.9-1.1-.9-1.9-2.1-2.2-3.2-.2-.9 0-1.7.4-2.3.3-.4.6-.7.8-.9Z" fill="currentColor"/>
+          </svg>
+          <span data-i18n="heroCta">Hablemos por WhatsApp</span>
+        </a>
+        <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
+      </div>
+      <img class="hero-image" src="vitrail-logo.png" alt="" aria-hidden="true">
+    </section>
+
+    <section id="equipamiento" aria-label="Instrumentos y equipamiento" data-i18n-aria="gearSectionLabel">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="section-intro" data-i18n="gearIntro">Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.</p>
+        </div>
+        <div class="gear-grid">
+          <article class="gear-item">
+            <span class="gear-number" data-i18n="gearKeys">01 / TECLAS</span>
+            <h3 data-i18n="gearPianos">Pianos</h3>
+            <p data-i18n="gearPianosDetails">Piano acústico<br>Piano eléctrico</p>
+          </article>
+          <article class="gear-item">
+            <span class="gear-number" data-i18n="gearRhythm">02 / RITMO</span>
+            <h3 data-i18n="gearDrums">Batería</h3>
+            <p data-i18n="gearDrumsDetails">Batería</p>
+          </article>
+          <article class="gear-item">
+            <span class="gear-number" data-i18n="gearStrings">03 / CUERDAS</span>
+            <h3 data-i18n="gearGuitars">Guitarras</h3>
+            <p data-i18n="gearGuitarsDetails">Guitarras acústicas, criollas y eléctricas<br>Amplificadores</p>
+          </article>
+          <article class="gear-item">
+            <span class="gear-number" data-i18n="gearRecording">04 / ESTUDIO</span>
+            <h3 data-i18n="gearRecordingTitle">Grabación</h3>
+            <p data-i18n="gearRecordingDetails">Micrófonos<br>Programas de edición y mezcla</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="approach-title">
+      <div class="wrap approach">
+        <div>
+          <p class="eyebrow" data-i18n="approachEyebrow">Con tiempo y atención</p>
+          <h2 id="approach-title" data-i18n="approachTitle">Tu proyecto, a tu manera.</h2>
+        </div>
+        <p data-i18n="approachCopy">Desde una primera idea hasta una sesión completa, Subtle es un espacio para trabajar con calma, probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.</p>
+      </div>
+    </section>
+
+    <section id="contacto" aria-labelledby="contact-title">
+      <div class="wrap contact">
+        <div>
+          <p class="contact-copy" id="contact-title" data-i18n="contactCopy">Escribinos para contarnos cuál es tu proyecto actualmente.</p>
+        </div>
+        <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Subtle por WhatsApp al +54 11 4159 0433" data-i18n-aria="contactLabel">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L3.5 20l1.2-4.5a8.3 8.3 0 1 1 15.8-3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.8 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.8 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-1.1-.1-2.5-.8-3.8-1.9-1.1-.9-1.9-2.1-2.2-3.2-.2-.9 0-1.7.4-2.3.3-.4.6-.7.8-.9Z" fill="currentColor"/>
+          </svg>
+          <span data-i18n="contactButton">+54 11 4159 0433</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="brand-lockup">
+        <img class="brand-logo" src="vitrail-logo.png" alt="" aria-hidden="true">
+        <span class="wordmark">Subtle</span>
+      </span>
+      <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
+    </div>
+  </footer>
+  <script>
+    const translations = {
+      es: {
+        pageTitle: "Subtle — espacio acústico para ensambles, composición, arreglos y grabación de música",
+        description: "Subtle — espacio acústico para ensambles, composición, arreglos y grabación de música con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.",
+        navLabel: "Navegación principal",
+        homeLabel: "Subtle, inicio",
+        navContact: "Contacto",
+        languageLabel: "Seleccionar idioma",
+        gearSectionLabel: "Instrumentos y equipamiento",
+        heroCategory: "Espacio acústico para ensambles, composición, arreglos y grabación de música",
+        heroTagline: "Music rehearsal room",
+        heroManifesto: "Un lugar para que tu música te inspire.",
+        heroCopy: "Componé música con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.",
+        heroCta: "Hablemos por WhatsApp",
+        heroNote: "Contanos qué querés grabar y lo pensamos juntos.",
+        gearIntro: "Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.",
+        gearKeys: "01 / TECLAS",
+        gearRhythm: "02 / RITMO",
+        gearStrings: "03 / CUERDAS",
+        gearRecording: "04 / ESTUDIO",
+        gearPianos: "Pianos",
+        gearDrums: "Batería",
+        gearGuitars: "Guitarras",
+        gearRecordingTitle: "Grabación",
+        gearPianosDetails: "Piano acústico<br>Piano eléctrico",
+        gearDrumsDetails: "Batería",
+        gearGuitarsDetails: "Guitarras acústicas, criollas y eléctricas<br>Amplificadores",
+        gearRecordingDetails: "Micrófonos<br>Programas de edición y mezcla",
+        approachEyebrow: "Con tiempo y atención",
+        approachTitle: "Tu proyecto, a tu manera.",
+        approachCopy: "Desde una primera idea hasta una sesión completa, Subtle es un espacio para trabajar con calma, probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.",
+        contactCopy: "Escribinos para contarnos cuál es tu proyecto actualmente.",
+        contactLabel: "Contactar a Subtle por WhatsApp al +54 11 4159 0433",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "Un espacio para escuchar mejor."
+      },
+      en: {
+        pageTitle: "Subtle — acoustic space for music ensembles, composition, arranging and recording",
+        description: "Subtle — an acoustic space for music ensembles, composition, arranging and recording, with instruments and everything you need to professionally record your music.",
+        navLabel: "Main navigation",
+        homeLabel: "Subtle, home",
+        navContact: "Contact",
+        languageLabel: "Choose language",
+        gearSectionLabel: "Instruments and equipment",
+        heroCategory: "Acoustic space for music ensembles, composition, arranging and recording",
+        heroTagline: "Music rehearsal room",
+        heroManifesto: "A place for your music to inspire you.",
+        heroCopy: "Compose music with instruments and everything you need to bring your music to a professional recording.",
+        heroCta: "Get in touch on WhatsApp",
+        heroNote: "Tell us what you’d like to record and we’ll plan it together.",
+        gearIntro: "Instruments and tools to explore, record and find the sound that fits your project.",
+        gearKeys: "01 / KEYS",
+        gearRhythm: "02 / RHYTHM",
+        gearStrings: "03 / STRINGS",
+        gearRecording: "04 / RECORDING",
+        gearPianos: "Pianos",
+        gearDrums: "Drums",
+        gearGuitars: "Guitars",
+        gearRecordingTitle: "Recording",
+        gearPianosDetails: "Acoustic piano<br>Electric piano",
+        gearDrumsDetails: "Drum kit",
+        gearGuitarsDetails: "Acoustic, classical and electric guitars<br>Amplifiers",
+        gearRecordingDetails: "Microphones<br>Editing and mixing software",
+        approachEyebrow: "Time and care",
+        approachTitle: "Your project, your way.",
+        approachCopy: "From an early idea to a full session, Subtle is a place to work at your own pace, experiment and shape what you have in mind. Get in touch to talk about your project and arrange a visit.",
+        contactCopy: "Tell us what project you’re working on at the moment.",
+        contactLabel: "Contact Subtle on WhatsApp at +54 11 4159 0433",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "A space to listen more closely."
+      }
+    };
+
+    function setLanguage(language) {
+      const selected = translations[language];
+      document.documentElement.lang = language;
+      document.title = selected.pageTitle;
+      document.querySelector('meta[name="description"]').content = selected.description;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.innerHTML = selected[element.dataset.i18n];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        const key = element.dataset.i18nAria;
+        element.setAttribute("aria-label", selected[key]);
+      });
+      document.querySelectorAll("[data-language]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.language === language));
+      });
+    }
+
+    document.querySelectorAll("[data-language]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+    setLanguage("es");
+  </script>
+</body>
+</html>
