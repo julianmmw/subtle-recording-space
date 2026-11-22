@@ -104,15 +104,6 @@
       overflow: hidden;
       padding-block: 90px;
     }
-    .hero-image {
-      display: block;
-      position: absolute;
-      width: min(40%, 420px);
-      height: auto;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
     .hero-content { max-width: 700px; }
     h1, h2, p { margin-top: 0; }
     h1 {
@@ -210,16 +201,6 @@
     @media (min-width: 700px) {
       .gear-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .gear-item { min-height: 180px; }
-      .hero-content { max-width: 54%; }
-    }
-    @media (max-width: 699px) {
-      .hero-image {
-        position: static;
-        width: min(70vw, 260px);
-        height: auto;
-        margin: 18px 0 24px;
-        transform: none;
-      }
     }
     @media (max-width: 600px) {
       .wrap { width: min(100% - 32px, 1080px); }
@@ -262,7 +243,6 @@
         <p class="eyebrow" data-i18n="heroCategory">Ensambles, composición, arreglos y grabación de música.</p>
         <h1 class="hero-title" id="hero-title">Subtle!</h1>
         <p class="hero-tagline" data-i18n="heroTagline">Acoustic rehersal, recording studio</p>
-        <img class="hero-image" src="vitrail-logo.png" alt="" aria-hidden="true">
         <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
         <p class="hero-copy" data-i18n="heroCopy">Componé música con instrumentos y todo lo necesario para llevar tu sonido a una grabación profesional.</p>
         <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer">
