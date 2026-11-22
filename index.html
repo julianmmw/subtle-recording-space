@@ -44,7 +44,7 @@
     .wrap { width: min(100% - 40px, 1080px); margin-inline: auto; }
     .eyebrow {
       color: var(--olive);
-      font-size: .72rem;
+      font-size: .82rem;
       font-weight: 600;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -60,16 +60,16 @@
     .wordmark {
       color: var(--text);
       font-family: var(--serif);
-      font-size: 1.65rem;
+      font-size: clamp(3.2rem, 11vw, 7.5rem);
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: -.055em;
       text-decoration: none;
     }
     .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
     .brand-lockup .wordmark { text-decoration: none; }
     .nav-link {
       color: var(--muted);
-      font-size: .84rem;
+      font-size: .96rem;
       text-decoration: none;
       transition: color .2s ease;
     }
@@ -86,7 +86,7 @@
       color: var(--muted);
       cursor: pointer;
       font: inherit;
-      font-size: .72rem;
+      font-size: .82rem;
       font-weight: 700;
       letter-spacing: .08em;
       line-height: 1;
@@ -121,17 +121,17 @@
       margin: 0 0 24px;
       color: #dde1e7;
       font-family: var(--serif);
-      font-size: clamp(1.25rem, 3.2vw, 2rem);
+      font-size: clamp(1.4rem, 3.4vw, 2.2rem);
       font-style: normal;
       line-height: 1.15;
     }
     .hero-manifesto {
       margin-bottom: 12px;
       font-family: var(--serif);
-      font-size: clamp(1.35rem, 4vw, 1.8rem);
+      font-size: clamp(1.5rem, 4.2vw, 2rem);
       line-height: 1.25;
     }
-    .hero-copy { max-width: 500px; margin-bottom: 32px; color: var(--muted); font-size: 1.03rem; }
+    .hero-copy { max-width: 500px; margin-bottom: 32px; color: var(--muted); font-size: 1.16rem; }
     .button {
       display: inline-flex;
       min-height: 50px;
@@ -144,26 +144,26 @@
       background: #25d366;
       border-color: #25d366;
       color: #ffffff;
-      font-size: 1.05rem;
+      font-size: 1.18rem;
       font-weight: 650;
       text-decoration: none;
       transition: background .2s ease, color .2s ease;
     }
     .button:hover { background: #4bdc82; color: #ffffff; border-color: #4bdc82; }
     .button svg { width: 21px; height: 21px; color: #ffffff; }
-    .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .77rem; }
+    .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .88rem; }
 
     section { padding-block: 82px; border-top: 1px solid var(--line); }
     .section-heading { max-width: 600px; margin-bottom: 36px; }
     h2 {
       margin-bottom: 12px;
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 7vw, 3.7rem);
+      font-size: clamp(2.4rem, 7.4vw, 4.05rem);
       font-weight: 400;
       letter-spacing: -.04em;
       line-height: 1.08;
     }
-    .section-intro { max-width: 490px; margin-bottom: 0; color: var(--muted); }
+    .section-intro { max-width: 490px; margin-bottom: 0; color: var(--muted); font-size: 1.08rem; }
     .gear-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -171,9 +171,9 @@
       border-left: 1px solid var(--line);
     }
     .gear-item { min-height: 150px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .72rem; letter-spacing: .12em; }
-    .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
-    .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.8; }
+    .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .82rem; letter-spacing: .12em; }
+    .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.48rem; font-weight: 400; }
+    .gear-item p { margin: 0; color: var(--muted); font-size: .96rem; line-height: 1.8; }
 
     .approach {
       display: grid;
@@ -181,7 +181,7 @@
       gap: 36px;
       align-items: start;
     }
-    .approach p { max-width: 480px; margin: 0; color: var(--muted); }
+    .approach p { max-width: 480px; margin: 0; color: var(--muted); font-size: 1.08rem; }
     .contact {
       display: flex;
       align-items: center;
@@ -191,11 +191,11 @@
       background: var(--surface);
       color: var(--text);
     }
-    .contact-copy { max-width: 500px; margin: 0; color: var(--text); font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
+    .contact-copy { max-width: 500px; margin: 0; color: var(--text); font-family: var(--serif); font-size: clamp(1.8rem, 5.4vw, 2.75rem); line-height: 1.2; }
     .contact .button { border-color: #25d366; background: #25d366; }
     .contact .button:hover { background: #4bdc82; color: #ffffff; }
     .contact .button { flex: 0 0 auto; }
-    footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
+    footer { padding-block: 28px; color: var(--muted); font-size: .86rem; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
 
     @media (min-width: 700px) {
@@ -212,6 +212,7 @@
       .approach { grid-template-columns: 1fr; gap: 14px; }
       .nav, .nav-actions { gap: 8px; }
       .brand-lockup { gap: 7px; }
+      .nav-link { display: none; }
       .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
       footer .wrap { flex-direction: column; gap: 4px; }
     }
