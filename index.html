@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#020721">
-  <meta name="description" content="Subtle — espacio acústico para ensambles, composición, arreglos y grabación de música.">
-  <title>Subtle — espacio acústico para ensambles, composición, arreglos y grabación de música</title>
+  <meta name="theme-color" content="#2b2b2b">
+  <meta name="description" content="Subtle — ensambles, composición, arreglos, grabación, mezcla y creación de contenido multimedia con base en Buenos Aires, Argentina, con instrumentos y todo lo necesario para llevar tu sonido a una grabación profesional.">
+  <title>Subtle — Ensambles, composición, arreglos y grabación de música.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: dark;
-      --bg: #020721;
-      --surface: #07112f;
-      --text: #dde1e7;
-      --muted: #d5d8de;
-      --line: #26314d;
+      --bg: #2b2b2b;
+      --surface: #353535;
+      --text: #e5e5e5;
+      --muted: #c9c9c9;
+      --line: #505050;
       --olive: #d8dc9d;
       --clay: #d6a27f;
       --serif: "Barlow Condensed", "Arial Narrow", sans-serif;
@@ -28,11 +28,6 @@
     body {
       margin: 0;
       background-color: var(--bg);
-      background-image: linear-gradient(rgb(2 7 33 / 42%), rgb(2 7 33 / 42%)), url("background.jpg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       color: var(--text);
       font-family: var(--sans);
       font-size: 16px;
@@ -232,8 +227,9 @@
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
         <div class="language-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="languageLabel">
-          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">AR</button>
-          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">EN</button>
+          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="false">SP</button>
+          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="true">EN</button>
+          <button type="button" data-language="pt" aria-label="Português" title="Português" aria-pressed="false">PT</button>
         </div>
       </div>
     </nav>
@@ -242,9 +238,9 @@
   <main>
     <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow" data-i18n="heroCategory">Ensambles, composición, arreglos y grabación de música.</p>
+        <p class="eyebrow" data-i18n="heroCategory">Ensambles, composición, arreglos, grabación, mezcla y creación de contenido multimedia con base en Buenos Aires, Argentina.</p>
         <h1 class="hero-title" id="hero-title">Subtle!</h1>
-        <p class="hero-tagline" data-i18n="heroTagline">Acoustic rehersal, recording studio</p>
+        <p class="hero-tagline" data-i18n="heroTagline">Espacio acústico, estudio de grabación.</p>
         <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
         <p class="hero-copy" data-i18n="heroCopy">Componé música con instrumentos y todo lo necesario para llevar tu sonido a una grabación profesional.</p>
         <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer">
@@ -254,25 +250,25 @@
           </svg>
           <span data-i18n="heroCta">Hablemos por WhatsApp</span>
         </a>
-        <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
+        <span class="hero-note" data-i18n="heroNote">Contanos cómo y con quién te gustaría grabar tu proyecto.</span>
       </div>
     </section>
 
     <section id="equipamiento" aria-label="Instrumentos y equipamiento" data-i18n-aria="gearSectionLabel">
       <div class="wrap">
         <div class="section-heading">
-          <p class="section-intro" data-i18n="gearIntro">Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.</p>
+          <p class="section-intro" data-i18n="gearIntro">Instrumentos y herramientas para explorar y encontrar el sonido de la música que viene.</p>
         </div>
         <div class="gear-grid">
           <article class="gear-item">
             <span class="gear-number" data-i18n="gearKeys">01 / TECLAS</span>
             <h3 data-i18n="gearPianos">Pianos</h3>
-            <p data-i18n="gearPianosDetails">Piano acústico<br>Piano eléctrico</p>
+            <p data-i18n="gearPianosDetails">Piano acústico<br>Piano eléctrico<br>Teclados</p>
           </article>
           <article class="gear-item">
             <span class="gear-number" data-i18n="gearRhythm">02 / RITMO</span>
             <h3 data-i18n="gearDrums">Batería</h3>
-            <p data-i18n="gearDrumsDetails">Batería</p>
+            <p data-i18n="gearDrumsDetails">Batería<br>Percusión</p>
           </article>
           <article class="gear-item">
             <span class="gear-number" data-i18n="gearStrings">03 / CUERDAS</span>
@@ -288,13 +284,19 @@
       </div>
     </section>
 
+    <section aria-labelledby="productions-title">
+      <div class="wrap section-heading">
+        <h2 id="productions-title" data-i18n="productionsTitle">Pronto! Producciones audiovisuales: diseño de guión para videoclips y realización de reels y documentales.</h2>
+      </div>
+    </section>
+
     <section aria-labelledby="approach-title">
       <div class="wrap approach">
         <div>
           <p class="eyebrow" data-i18n="approachEyebrow">Con tiempo y atención</p>
           <h2 id="approach-title" data-i18n="approachTitle">Tu proyecto, a tu manera.</h2>
         </div>
-        <p data-i18n="approachCopy">Desde una primera idea hasta una sesión completa, Subtle es un espacio para probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.</p>
+        <p data-i18n="approachCopy">Desde una primera idea hasta una sesión completa, Subtle es un espacio para probar y darle forma a lo que tenés en mente. Con el ritmo como base fundamental, exploramos desde la mejor música clásica y folclórica de cada lugar hasta los ritmos fundamentales de África y Latinoamérica, como también el groove del jazz y el blues y toda la música orquestal de todas las épocas. Escribinos para conversar sobre tu proyecto y coordinar una visita.</p>
       </div>
     </section>
 
@@ -319,26 +321,26 @@
       <span class="brand-lockup">
         <span class="wordmark">Subtle!</span>
       </span>
-      <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
+      <span data-i18n="footerLine">Un espacio para escucharnos mejor.</span>
     </div>
   </footer>
   <script>
     const translations = {
       es: {
         pageTitle: "Subtle — Ensambles, composición, arreglos y grabación de música.",
-        description: "Subtle — ensambles, composición, arreglos y grabación de música con instrumentos y todo lo necesario para llevar tu sonido a una grabación profesional.",
+        description: "Subtle — ensambles, composición, arreglos, grabación, mezcla y creación de contenido multimedia con base en Buenos Aires, Argentina, con instrumentos y todo lo necesario para llevar tu sonido a una grabación profesional.",
         navLabel: "Navegación principal",
         homeLabel: "Subtle, inicio",
         navContact: "Contacto",
         languageLabel: "Seleccionar idioma",
         gearSectionLabel: "Instrumentos y equipamiento",
-        heroCategory: "Ensambles, composición, arreglos y grabación de música.",
-        heroTagline: "Espacio acústico, estudio de grabación",
+        heroCategory: "Ensambles, composición, arreglos, grabación, mezcla y creación de contenido multimedia con base en Buenos Aires, Argentina.",
+        heroTagline: "Espacio acústico, estudio de grabación.",
         heroManifesto: "Un lugar para que tu música te inspire.",
         heroCopy: "Componé música con instrumentos y todo lo necesario para llevar tu sonido a una grabación profesional.",
         heroCta: "Hablemos por WhatsApp",
-        heroNote: "Contanos qué querés grabar y lo pensamos juntos.",
-        gearIntro: "Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.",
+        heroNote: "Contanos cómo y con quién te gustaría grabar tu proyecto.",
+        gearIntro: "Instrumentos y herramientas para explorar y encontrar el sonido de la música que viene.",
         gearKeys: "01 / TECLAS",
         gearRhythm: "02 / RITMO",
         gearStrings: "03 / CUERDAS",
@@ -347,33 +349,34 @@
         gearDrums: "Batería",
         gearGuitars: "Guitarras",
         gearRecordingTitle: "Grabación",
-        gearPianosDetails: "Piano acústico<br>Piano eléctrico",
+        gearPianosDetails: "Piano acústico<br>Piano eléctrico<br>Teclados",
         gearDrumsDetails: "Batería<br>Percusión",
         gearGuitarsDetails: "Guitarras acústicas, criollas y eléctricas<br>Amplificadores",
         gearRecordingDetails: "Micrófonos<br>Programas de edición y mezcla",
+        productionsTitle: "Pronto! Producciones audiovisuales: diseño de guión para videoclips y realización de reels y documentales.",
         approachEyebrow: "Con tiempo y atención",
         approachTitle: "Tu proyecto, a tu manera.",
-        approachCopy: "Desde una primera idea hasta una sesión completa, Subtle es un espacio para probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.",
+        approachCopy: "Desde una primera idea hasta una sesión completa, Subtle es un espacio para probar y darle forma a lo que tenés en mente. Con el ritmo como base fundamental, exploramos desde la mejor música clásica y folclórica de cada lugar hasta los ritmos fundamentales de África y Latinoamérica, como también el groove del jazz y el blues y toda la música orquestal de todas las épocas. Escribinos para conversar sobre tu proyecto y coordinar una visita.",
         contactCopy: "Escribinos para contarnos cuál es tu proyecto actualmente.",
         contactLabel: "Contactar a Subtle por WhatsApp al +54 11 4159 0433",
         contactButton: "+54 11 4159 0433",
-        footerLine: "Un espacio para escuchar mejor."
+        footerLine: "Un espacio para escucharnos mejor."
       },
       en: {
         pageTitle: "Subtle — Music ensembles, composition, arranging and recording.",
-        description: "Subtle — music ensembles, composition, arranging and recording, with instruments and everything you need to professionally record your sound.",
+        description: "Subtle — music ensembles, composition, arranging, recording, mixing, and multimedia content creation based in Buenos Aires, Argentina, with instruments and everything you need to professionally record your sound.",
         navLabel: "Main navigation",
         homeLabel: "Subtle, home",
         navContact: "Contact",
         languageLabel: "Choose language",
         gearSectionLabel: "Instruments and equipment",
-        heroCategory: "Music ensembles, composition, arranging and recording.",
-        heroTagline: "Acoustic rehersal, recording studio",
+        heroCategory: "Music ensembles, composition, arranging, recording, mixing, and multimedia content creation based in Buenos Aires, Argentina.",
+        heroTagline: "Acoustic space, recording studio.",
         heroManifesto: "A place for your music to inspire you.",
         heroCopy: "Compose music with instruments and everything you need to bring your sound to a professional recording.",
         heroCta: "Get in touch on WhatsApp",
-        heroNote: "Tell us what you’d like to record and we’ll plan it together.",
-        gearIntro: "Instruments and tools to explore, record and find the sound that fits your project.",
+        heroNote: "Tell us how and with whom you’d like to record your project.",
+        gearIntro: "Instruments and tools to explore and find the sound of the music to come.",
         gearKeys: "01 / KEYS",
         gearRhythm: "02 / RHYTHM",
         gearStrings: "03 / STRINGS",
@@ -382,17 +385,54 @@
         gearDrums: "Drums",
         gearGuitars: "Guitars",
         gearRecordingTitle: "Recording",
-        gearPianosDetails: "Acoustic piano<br>Electric piano",
+        gearPianosDetails: "Acoustic piano<br>Electric piano<br>Keyboards",
         gearDrumsDetails: "Drum kit<br>Percussion",
         gearGuitarsDetails: "Acoustic, classical and electric guitars<br>Amplifiers",
         gearRecordingDetails: "Microphones<br>Editing and mixing software",
         approachEyebrow: "Time and care",
         approachTitle: "Your project, your way.",
-        approachCopy: "From an early idea to a full session, Subtle is a place to work at your own pace, experiment and shape what you have in mind. Get in touch to talk about your project and arrange a visit.",
+        productionsTitle: "Coming soon! Audiovisual productions: scriptwriting for music videos and production of reels and documentaries.",
+        approachCopy: "From an initial idea to a full session, Subtle is a place to experiment and shape what you have in mind. With rhythm as our foundation, we explore everything from the best classical and folk music of each place to the foundational rhythms of Africa and Latin America, as well as the groove of jazz and blues and all the orchestral music from every era. Get in touch to talk about your project and arrange a visit.",
         contactCopy: "Tell us what project you’re working on at the moment.",
         contactLabel: "Contact Subtle on WhatsApp at +54 11 4159 0433",
         contactButton: "+54 11 4159 0433",
-        footerLine: "A space to listen more closely."
+        footerLine: "A space to listen to one another better."
+      },
+      pt: {
+        pageTitle: "Subtle — Conjuntos musicais, composição, arranjos e gravação.",
+        description: "Subtle — conjuntos musicais, composição, arranjos, gravação, mixagem e criação de conteúdo multimídia com base em Buenos Aires, Argentina, com instrumentos e tudo o que você precisa para levar seu som a uma gravação profissional.",
+        navLabel: "Navegação principal",
+        homeLabel: "Subtle, início",
+        navContact: "Contato",
+        languageLabel: "Selecionar idioma",
+        gearSectionLabel: "Instrumentos e equipamentos",
+        heroCategory: "Conjuntos musicais, composição, arranjos, gravação, mixagem e criação de conteúdo multimídia com base em Buenos Aires, Argentina.",
+        heroTagline: "Espaço acústico, estúdio de gravação.",
+        heroManifesto: "Um lugar para sua música inspirar você.",
+        heroCopy: "Componha música com instrumentos e tudo o que você precisa para levar seu som a uma gravação profissional.",
+        heroCta: "Fale com a gente pelo WhatsApp",
+        heroNote: "Conte como e com quem você gostaria de gravar seu projeto.",
+        gearIntro: "Instrumentos e ferramentas para explorar e encontrar o som da música que está por vir.",
+        gearKeys: "01 / TECLAS",
+        gearRhythm: "02 / RITMO",
+        gearStrings: "03 / CORDAS",
+        gearRecording: "04 / ESTÚDIO",
+        gearPianos: "Pianos",
+        gearDrums: "Bateria",
+        gearGuitars: "Guitarras",
+        gearRecordingTitle: "Gravação",
+        gearPianosDetails: "Piano acústico<br>Piano elétrico<br>Teclados",
+        gearDrumsDetails: "Bateria<br>Percussão",
+        gearGuitarsDetails: "Violões, guitarras clássicas e elétricas<br>Amplificadores",
+        gearRecordingDetails: "Microfones<br>Programas de edição e mixagem",
+        productionsTitle: "Em breve! Produções audiovisuais: criação de roteiros para videoclipes e produção de reels e documentários.",
+        approachEyebrow: "Com tempo e atenção",
+        approachTitle: "Seu projeto, do seu jeito.",
+        approachCopy: "De uma ideia inicial a uma sessão completa, a Subtle é um espaço para experimentar e dar forma ao que você tem em mente. Com o ritmo como base fundamental, exploramos desde a melhor música clássica e folclórica de cada lugar até os ritmos fundamentais da África e da América Latina, além do groove do jazz e do blues e de toda a música orquestral de todas as épocas. Escreva para conversarmos sobre seu projeto e combinar uma visita.",
+        contactCopy: "Escreva para contar qual é o seu projeto neste momento.",
+        contactLabel: "Fale com a Subtle pelo WhatsApp no +54 11 4159 0433",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "Um espaço para ouvirmos melhor uns aos outros."
       }
     };
 
@@ -417,7 +457,7 @@
     document.querySelectorAll("[data-language]").forEach((button) => {
       button.addEventListener("click", () => setLanguage(button.dataset.language));
     });
-    setLanguage("es");
+    setLanguage("en");
   </script>
 </body>
 </html>
