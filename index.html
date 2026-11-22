@@ -4,21 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171915">
-  <meta name="description" content="Subtle — espacio de grabación y ensamble con instrumentos y todo lo necesario para componer y grabar profesionalmente.">
-  <title>Subtle — espacio de grabación y ensamble</title>
+  <meta name="description" content="Subtle — espacio de ensamble y grabación con instrumentos y todo lo necesario para componer y grabar profesionalmente.">
+  <title>Subtle — espacio de ensamble y grabación</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f3e7d0;
-      --surface: #63764b;
-      --text: #30221d;
-      --muted: #6b594a;
-      --line: #d3bb94;
-      --olive: #536d49;
-      --clay: #bd4932;
-      --mustard: #e3aa3b;
-      --teal: #197f7b;
-      --pink: #ca5372;
+      color-scheme: dark;
+      --bg: #171915;
+      --surface: #20221d;
+      --text: #f0eee6;
+      --muted: #aaa99d;
+      --line: #393a32;
+      --olive: #b6b995;
+      --clay: #c58f70;
       --serif: Georgia, "Times New Roman", serif;
       --sans: "Segoe UI", Arial, sans-serif;
     }
@@ -28,29 +25,11 @@
     body {
       margin: 0;
       background: var(--bg);
-      background-image:
-        radial-gradient(ellipse at 18% 22%, rgb(104 69 36 / 5%) 0 1px, transparent 1.5px),
-        radial-gradient(ellipse at 76% 68%, rgb(104 69 36 / 4%) 0 1px, transparent 1.5px),
-        repeating-linear-gradient(0deg, transparent 0 5px, rgb(104 69 36 / 2%) 5px 6px);
-      background-size: 13px 11px, 17px 19px, auto;
       color: var(--text);
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      z-index: 10;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgb(81 54 35 / 11%) .55px, transparent .8px),
-        radial-gradient(circle, rgb(255 255 255 / 28%) .55px, transparent .8px);
-      background-size: 7px 9px, 11px 13px;
-      opacity: .3;
-      mix-blend-mode: multiply;
     }
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--olive); outline-offset: 5px; }
@@ -77,6 +56,10 @@
       letter-spacing: .08em;
       text-decoration: none;
     }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+    .brand-lockup .wordmark { text-decoration: none; }
+    .disco-ball { display: block; width: 78px; height: 78px; flex: 0 0 auto; }
+    .disco-ball-small { width: 28px; height: 28px; }
     .nav-link {
       color: var(--muted);
       font-size: .84rem;
@@ -87,22 +70,23 @@
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .language-switch { display: flex; align-items: center; gap: 5px; }
     .language-switch button {
-      display: grid;
-      width: 36px;
-      height: 36px;
-      place-items: center;
-      border: 1px solid transparent;
-      border-radius: 50%;
+      min-width: 36px;
+      height: 34px;
+      padding-inline: 8px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
       background: transparent;
+      color: var(--muted);
       cursor: pointer;
       font: inherit;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
       line-height: 1;
-      opacity: .6;
-      transition: opacity .2s ease, border-color .2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
-    .language-switch button svg { width: 22px; height: 15px; border-radius: 1px; box-shadow: 0 0 0 1px rgb(48 34 29 / 18%); }
-    .language-switch button:hover { opacity: 1; }
-    .language-switch button[aria-pressed="true"] { border-color: var(--olive); opacity: 1; }
+    .language-switch button:hover { color: var(--text); border-color: var(--olive); }
+    .language-switch button[aria-pressed="true"] { border-color: var(--olive); background: var(--olive); color: var(--bg); }
     .language-switch button:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; }
 
     .hero {
@@ -122,23 +106,23 @@
       right: -9%;
       top: 50%;
       transform: translateY(-50%);
-      border: 1px solid rgb(189 73 50 / 20%);
+      border: 1px solid rgb(182 185 149 / 12%);
       border-radius: 50%;
-      box-shadow: 0 0 0 52px rgb(227 170 59 / 8%), 0 0 0 104px rgb(83 109 73 / 5%);
+      box-shadow: 0 0 0 52px rgb(182 185 149 / 3%), 0 0 0 104px rgb(182 185 149 / 2%);
     }
     .hero-content { max-width: 700px; }
     h1, h2, p { margin-top: 0; }
     h1 {
       max-width: 680px;
       margin-bottom: 24px;
-      color: var(--clay);
-      font-family: "Trebuchet MS", "Arial Rounded MT Bold", var(--sans);
+      color: var(--text);
+      font-family: var(--serif);
       font-size: clamp(3.2rem, 11vw, 7.5rem);
-      font-weight: 800;
-      letter-spacing: -.065em;
+      font-weight: 400;
+      letter-spacing: -.055em;
       line-height: .98;
     }
-    .hero-title { margin-bottom: 0; }
+    .hero-title { display: flex; align-items: center; gap: clamp(12px, 3vw, 24px); margin-bottom: 0; }
     .hero-tagline {
       margin: 0 0 24px;
       color: var(--olive);
@@ -179,15 +163,8 @@
       overflow: hidden;
       padding-block: 30px;
       border: 0;
-      background: var(--text);
-      color: var(--bg);
-    }
-    .groove-strip::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(135deg, transparent 0 20px, rgb(227 170 59 / 12%) 20px 22px);
-      pointer-events: none;
+      background: var(--surface);
+      color: var(--text);
     }
     .groove-inner {
       position: relative;
@@ -196,8 +173,8 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .groove-copy { max-width: 430px; margin: 0; color: #f3e7d0; font-family: var(--serif); font-size: 1.05rem; line-height: 1.45; }
-    .groove-strip .eyebrow { color: var(--mustard); }
+    .groove-copy { max-width: 430px; margin: 0; color: var(--muted); font-family: var(--serif); font-size: 1.05rem; line-height: 1.45; }
+    .groove-strip .eyebrow { color: var(--olive); }
     .groove-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .genre-tag {
       display: inline-flex;
@@ -205,15 +182,16 @@
       align-items: center;
       padding: 3px 11px;
       border-radius: 2px;
-      background: var(--mustard);
-      color: var(--text);
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--olive);
       font-size: .7rem;
       font-weight: 700;
       letter-spacing: .12em;
     }
-    .genre-tag:nth-child(2) { background: var(--teal); color: #fff7e8; }
-    .genre-tag:nth-child(3) { background: var(--pink); color: #fff7e8; }
-    .genre-tag:nth-child(4) { background: var(--clay); color: #fff7e8; }
+    .genre-tag:nth-child(2) { border-color: var(--olive); background: var(--olive); color: var(--bg); }
+    .genre-tag:nth-child(3) { border-color: var(--clay); color: var(--clay); }
+    .genre-tag:nth-child(4) { border-color: var(--olive); color: var(--olive); }
     .section-heading { max-width: 600px; margin-bottom: 36px; }
     h2 {
       margin-bottom: 12px;
@@ -227,18 +205,10 @@
     .gear-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
-    .gear-item {
-      min-height: 150px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background:
-        radial-gradient(circle at 90% 10%, rgb(227 170 59 / 14%), transparent 48%),
-        rgb(255 250 239 / 55%);
-      box-shadow: 3px 4px 0 rgb(117 77 48 / 9%);
-    }
+    .gear-item { min-height: 150px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .72rem; letter-spacing: .12em; }
     .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
     .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.8; }
@@ -257,12 +227,11 @@
       gap: 28px;
       padding: 34px;
       background: var(--surface);
-      color: #f8edda;
-      box-shadow: 5px 6px 0 rgb(117 77 48 / 12%);
+      color: var(--text);
     }
-    .contact-copy { max-width: 500px; margin: 0; color: #f8edda; font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
-    .contact .button { border-color: var(--mustard); background: var(--mustard); }
-    .contact .button:hover { background: transparent; color: #f8edda; }
+    .contact-copy { max-width: 500px; margin: 0; color: var(--text); font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
+    .contact .button { border-color: var(--olive); background: var(--olive); }
+    .contact .button:hover { background: transparent; color: var(--text); }
     .contact .button { flex: 0 0 auto; }
     footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
@@ -294,29 +263,23 @@
 <body>
   <header>
     <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
-      <a class="wordmark" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">Subtle</a>
+      <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
+        <span class="wordmark">Subtle</span>
+        <svg class="disco-ball disco-ball-small" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 2v7M23 10h18" stroke="#b6b995" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="32" cy="35" r="23" fill="#b6b995" stroke="#f0eee6" stroke-width="1.5"/>
+          <g fill="none" stroke="#171915" stroke-opacity=".55" stroke-width="1.1">
+            <path d="M10 31h44M12 40h40M17 48h30"/>
+            <path d="M23 14c-9 12-9 30 0 42M32 12v46M41 14c9 12 9 30 0 42"/>
+          </g>
+          <path d="m20 23 4 2m17-5 4 2m-27 17 4 1m21 0 4-1" fill="none" stroke="#f0eee6" stroke-linecap="round" stroke-width="1.5"/>
+        </svg>
+      </a>
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
         <div class="language-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="languageLabel">
-          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">
-            <svg viewBox="0 0 60 40" aria-hidden="true">
-              <rect width="60" height="40" fill="#fff"/>
-              <path d="M0 0h60v13.33H0zM0 26.67h60V40H0z" fill="#74acdf"/>
-              <circle cx="30" cy="20" r="4" fill="#f6b40e"/>
-            </svg>
-          </button>
-          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">
-            <svg viewBox="0 0 60 30" aria-hidden="true">
-              <defs><clipPath id="uk-flag-clip"><path d="M0 0h60v30H0z"/></clipPath></defs>
-              <g clip-path="url(#uk-flag-clip)">
-                <path fill="#012169" d="M0 0h60v30H0z"/>
-                <path stroke="#fff" stroke-width="6" d="m0 0 60 30M60 0 0 30"/>
-                <path stroke="#c8102e" stroke-width="2.4" d="m0 0 60 30M60 0 0 30"/>
-                <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/>
-                <path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/>
-              </g>
-            </svg>
-          </button>
+          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">AR</button>
+          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">EN</button>
         </div>
       </div>
     </nav>
@@ -325,8 +288,19 @@
   <main>
     <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow" data-i18n="heroCategory">Espacio de grabación y ensamble</p>
-        <h1 class="hero-title" id="hero-title">Subtle</h1>
+        <p class="eyebrow" data-i18n="heroCategory">Espacio de ensamble y grabación</p>
+        <h1 class="hero-title" id="hero-title">
+          Subtle
+          <svg class="disco-ball" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 2v7M23 10h18" stroke="#b6b995" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="32" cy="35" r="23" fill="#b6b995" stroke="#f0eee6" stroke-width="1.5"/>
+            <g fill="none" stroke="#171915" stroke-opacity=".55" stroke-width="1.1">
+              <path d="M10 31h44M12 40h40M17 48h30"/>
+              <path d="M23 14c-9 12-9 30 0 42M32 12v46M41 14c9 12 9 30 0 42"/>
+            </g>
+            <path d="m20 23 4 2m17-5 4 2m-27 17 4 1m21 0 4-1" fill="none" stroke="#f0eee6" stroke-linecap="round" stroke-width="1.5"/>
+          </svg>
+        </h1>
         <p class="hero-tagline"><em data-i18n="heroTagline">rehearsal room</em></p>
         <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
         <p class="hero-copy" data-i18n="heroCopy">Un espacio perfecto para componer, con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.</p>
@@ -416,15 +390,26 @@
 
   <footer>
     <div class="wrap">
-      <span class="wordmark">Subtle</span>
+      <span class="brand-lockup">
+        <span class="wordmark">Subtle</span>
+        <svg class="disco-ball disco-ball-small" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 2v7M23 10h18" stroke="#b6b995" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="32" cy="35" r="23" fill="#b6b995" stroke="#f0eee6" stroke-width="1.5"/>
+          <g fill="none" stroke="#171915" stroke-opacity=".55" stroke-width="1.1">
+            <path d="M10 31h44M12 40h40M17 48h30"/>
+            <path d="M23 14c-9 12-9 30 0 42M32 12v46M41 14c9 12 9 30 0 42"/>
+          </g>
+          <path d="m20 23 4 2m17-5 4 2m-27 17 4 1m21 0 4-1" fill="none" stroke="#f0eee6" stroke-linecap="round" stroke-width="1.5"/>
+        </svg>
+      </span>
       <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
     </div>
   </footer>
   <script>
     const translations = {
       es: {
-        pageTitle: "Subtle — espacio de grabación y ensamble",
-        description: "Subtle — espacio de grabación y ensamble con instrumentos y todo lo necesario para componer y grabar profesionalmente.",
+        pageTitle: "Subtle — espacio de ensamble y grabación",
+        description: "Subtle — espacio de ensamble y grabación con instrumentos y todo lo necesario para componer y grabar profesionalmente.",
         navLabel: "Navegación principal",
         homeLabel: "Subtle, inicio",
         navContact: "Contacto",
@@ -433,7 +418,7 @@
         genreLabel: "Disco, soul, pop y dance",
         grooveEyebrow: "Un groove entre décadas",
         grooveCopy: "Ritmos cálidos de los 70, energía bailable de los 80 y espacio para que cada proyecto encuentre su pulso.",
-        heroCategory: "Espacio de grabación y ensamble",
+        heroCategory: "Espacio de ensamble y grabación",
         heroTagline: "rehearsal room",
         heroManifesto: "Un lugar para que tu música te inspire.",
         heroCopy: "Un espacio perfecto para componer, con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.",
@@ -460,8 +445,8 @@
         footerLine: "Un espacio para escuchar mejor."
       },
       en: {
-        pageTitle: "Subtle — recording and rehearsal space",
-        description: "Subtle — a recording and rehearsal space with instruments and everything you need to write and professionally record your music.",
+        pageTitle: "Subtle — rehearsal and recording space",
+        description: "Subtle — a rehearsal and recording space with instruments and everything you need to write and professionally record your music.",
         navLabel: "Main navigation",
         homeLabel: "Subtle, home",
         navContact: "Contact",
@@ -470,7 +455,7 @@
         genreLabel: "Disco, soul, pop and dance music",
         grooveEyebrow: "A groove across decades",
         grooveCopy: "Warm 70s rhythms, 80s dance energy, and room for every project to find its own pulse.",
-        heroCategory: "Recording and rehearsal space",
+        heroCategory: "Rehearsal and recording space",
         heroTagline: "rehearsal room",
         heroManifesto: "A place for your music to inspire you.",
         heroCopy: "A perfect space to write music, with instruments and everything you need to bring your music to a professional recording.",
