@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171915">
-  <meta name="description" content="Subtle — espacio de grabación equipado con piano, batería, guitarras y tecnología para registrar tu música con calidad profesional.">
-  <title>Subtle — espacio de grabación</title>
+  <meta name="description" content="Subtle — espacio de grabación y ensamble con instrumentos y todo lo necesario para componer y grabar profesionalmente.">
+  <title>Subtle — espacio de grabación y ensamble</title>
   <style>
     :root {
       color-scheme: dark;
@@ -63,6 +63,26 @@
       transition: color .2s ease;
     }
     .nav-link:hover { color: var(--text); }
+    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .language-switch { display: flex; align-items: center; gap: 5px; }
+    .language-switch button {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      font-size: 1.05rem;
+      line-height: 1;
+      opacity: .6;
+      transition: opacity .2s ease, border-color .2s ease;
+    }
+    .language-switch button:hover { opacity: 1; }
+    .language-switch button[aria-pressed="true"] { border-color: var(--olive); opacity: 1; }
+    .language-switch button:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; }
 
     .hero {
       min-height: 570px;
@@ -96,8 +116,21 @@
       letter-spacing: -.055em;
       line-height: .98;
     }
-    h1 span { color: var(--olive); font-style: italic; }
-    .hero-copy { max-width: 450px; margin-bottom: 32px; color: var(--muted); font-size: 1.03rem; }
+    .hero-title { margin-bottom: 0; }
+    .hero-tagline {
+      margin: 0 0 24px;
+      color: var(--olive);
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 5vw, 2.7rem);
+      line-height: 1.15;
+    }
+    .hero-manifesto {
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 4vw, 1.8rem);
+      line-height: 1.25;
+    }
+    .hero-copy { max-width: 500px; margin-bottom: 32px; color: var(--muted); font-size: 1.03rem; }
     .button {
       display: inline-flex;
       min-height: 50px;
@@ -138,7 +171,7 @@
     .gear-item { min-height: 150px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .72rem; letter-spacing: .12em; }
     .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
-    .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.8; }
 
     .approach {
       display: grid;
@@ -155,8 +188,7 @@
       padding: 34px;
       background: var(--surface);
     }
-    .contact h2 { margin-bottom: 8px; font-size: clamp(2rem, 6vw, 3rem); }
-    .contact p { margin-bottom: 0; color: var(--muted); }
+    .contact-copy { max-width: 500px; margin: 0; font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
     .contact .button { flex: 0 0 auto; }
     footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
@@ -174,6 +206,7 @@
       .gear-item { min-height: 140px; padding: 18px 14px; }
       .gear-number { margin-bottom: 20px; }
       .approach { grid-template-columns: 1fr; gap: 14px; }
+      .nav-actions { gap: 12px; }
       .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
       footer .wrap { flex-direction: column; gap: 4px; }
     }
@@ -185,56 +218,64 @@
 </head>
 <body>
   <header>
-    <nav class="nav wrap" aria-label="Navegación principal">
-      <a class="wordmark" href="#inicio" aria-label="Subtle, inicio">subtle</a>
-      <a class="nav-link" href="#contacto">Contacto <span aria-hidden="true">↗</span></a>
+    <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
+      <a class="wordmark" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">Subtle</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
+        <div class="language-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="languageLabel">
+          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">🇦🇷</button>
+          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">🇬🇧</button>
+        </div>
+      </div>
     </nav>
   </header>
 
   <main>
     <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow">Espacio de grabación</p>
-        <h1 id="hero-title">Un lugar para que tu música <span>respire.</span></h1>
-        <p class="hero-copy">Un espacio cuidado, instrumentos listos y la tecnología necesaria para llevar tus ideas a una grabación profesional.</p>
+        <p class="eyebrow" data-i18n="heroCategory">Espacio de grabación y ensamble</p>
+        <h1 class="hero-title" id="hero-title">Subtle</h1>
+        <p class="hero-tagline"><em data-i18n="heroTagline">rehearsal room</em></p>
+        <p class="hero-manifesto" data-i18n="heroManifesto">Un lugar para que tu música te inspire.</p>
+        <p class="hero-copy" data-i18n="heroCopy">Un espacio perfecto para componer, con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.</p>
         <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L3.5 20l1.2-4.5a8.3 8.3 0 1 1 15.8-3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M8.8 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.8 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-1.1-.1-2.5-.8-3.8-1.9-1.1-.9-1.9-2.1-2.2-3.2-.2-.9 0-1.7.4-2.3.3-.4.6-.7.8-.9Z" fill="currentColor"/>
           </svg>
-          Hablemos por WhatsApp
+          <span data-i18n="heroCta">Hablemos por WhatsApp</span>
         </a>
-        <span class="hero-note">Contanos qué querés grabar y lo pensamos juntos.</span>
+        <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
       </div>
     </section>
 
     <section id="equipamiento" aria-labelledby="gear-title">
       <div class="wrap">
         <div class="section-heading">
-          <p class="eyebrow">A mano, cuando lo necesitás</p>
-          <h2 id="gear-title">Todo empieza con una buena toma.</h2>
-          <p class="section-intro">Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.</p>
+          <p class="eyebrow" data-i18n="gearEyebrow">A mano, cuando lo necesitás</p>
+          <h2 id="gear-title" data-i18n="gearTitle">Todo empieza con una buena toma.</h2>
+          <p class="section-intro" data-i18n="gearIntro">Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.</p>
         </div>
         <div class="gear-grid">
           <article class="gear-item">
-            <span class="gear-number">01 / TECLAS</span>
-            <h3>Piano</h3>
-            <p>Un punto de partida para componer y grabar.</p>
+            <span class="gear-number" data-i18n="gearKeys">01 / TECLAS</span>
+            <h3 data-i18n="gearPianos">Pianos</h3>
+            <p data-i18n="gearPianosDetails">Piano acústico<br>Piano eléctrico</p>
           </article>
           <article class="gear-item">
-            <span class="gear-number">02 / RITMO</span>
+            <span class="gear-number" data-i18n="gearRhythm">02 / RITMO</span>
             <h3>Batería</h3>
-            <p>Lista para darle pulso a tus canciones.</p>
+            <p data-i18n="gearDrumsDetails">Batería</p>
           </article>
           <article class="gear-item">
-            <span class="gear-number">03 / CUERDAS</span>
+            <span class="gear-number" data-i18n="gearStrings">03 / CUERDAS</span>
             <h3>Guitarras</h3>
-            <p>Distintos colores para buscar tu sonido.</p>
+            <p data-i18n="gearGuitarsDetails">Guitarras acústicas, criollas y eléctricas<br>Amplificadores</p>
           </article>
           <article class="gear-item">
-            <span class="gear-number">04 / ESTUDIO</span>
+            <span class="gear-number" data-i18n="gearRecording">04 / ESTUDIO</span>
             <h3>Grabación</h3>
-            <p>Tecnología y herramientas para registrar audio profesionalmente.</p>
+            <p data-i18n="gearRecordingDetails">Micrófonos<br>Programas de edición y mezcla</p>
           </article>
         </div>
       </div>
@@ -243,26 +284,24 @@
     <section aria-labelledby="approach-title">
       <div class="wrap approach">
         <div>
-          <p class="eyebrow">Con tiempo y atención</p>
-          <h2 id="approach-title">Tu proyecto, a tu manera.</h2>
+          <p class="eyebrow" data-i18n="approachEyebrow">Con tiempo y atención</p>
+          <h2 id="approach-title" data-i18n="approachTitle">Tu proyecto, a tu manera.</h2>
         </div>
-        <p>Desde una primera idea hasta una sesión completa, Subtle es un espacio para trabajar con calma, probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.</p>
+        <p data-i18n="approachCopy">Desde una primera idea hasta una sesión completa, Subtle es un espacio para trabajar con calma, probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.</p>
       </div>
     </section>
 
     <section id="contacto" aria-labelledby="contact-title">
       <div class="wrap contact">
         <div>
-          <p class="eyebrow">El próximo paso</p>
-          <h2 id="contact-title">¿Qué querés grabar?</h2>
-          <p>Escribinos y armamos una sesión para tu proyecto.</p>
+          <p class="contact-copy" id="contact-title" data-i18n="contactCopy">Escribinos para contarnos cuál es tu proyecto actualmente.</p>
         </div>
-        <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Subtle por WhatsApp al +54 11 4159 0433">
+        <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Subtle por WhatsApp al +54 11 4159 0433" data-i18n-aria="contactLabel">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L3.5 20l1.2-4.5a8.3 8.3 0 1 1 15.8-3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M8.8 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.8 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-1.1-.1-2.5-.8-3.8-1.9-1.1-.9-1.9-2.1-2.2-3.2-.2-.9 0-1.7.4-2.3.3-.4.6-.7.8-.9Z" fill="currentColor"/>
           </svg>
-          +54 11 4159 0433
+          <span data-i18n="contactButton">+54 11 4159 0433</span>
         </a>
       </div>
     </section>
@@ -270,9 +309,102 @@
 
   <footer>
     <div class="wrap">
-      <span class="wordmark">subtle</span>
-      <span>Un espacio para escuchar mejor.</span>
+      <span class="wordmark">Subtle</span>
+      <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
     </div>
   </footer>
+  <script>
+    const translations = {
+      es: {
+        pageTitle: "Subtle — espacio de grabación y ensamble",
+        description: "Subtle — espacio de grabación y ensamble con instrumentos y todo lo necesario para componer y grabar profesionalmente.",
+        navLabel: "Navegación principal",
+        homeLabel: "Subtle, inicio",
+        navContact: "Contacto",
+        languageLabel: "Seleccionar idioma",
+        heroCategory: "Espacio de grabación y ensamble",
+        heroTagline: "rehearsal room",
+        heroManifesto: "Un lugar para que tu música te inspire.",
+        heroCopy: "Un espacio perfecto para componer, con instrumentos y todo lo necesario para llevar tu música a una grabación profesional.",
+        heroCta: "Hablemos por WhatsApp",
+        heroNote: "Contanos qué querés grabar y lo pensamos juntos.",
+        gearEyebrow: "A mano, cuando lo necesitás",
+        gearTitle: "Todo empieza con una buena toma.",
+        gearIntro: "Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.",
+        gearKeys: "01 / TECLAS",
+        gearRhythm: "02 / RITMO",
+        gearStrings: "03 / CUERDAS",
+        gearRecording: "04 / ESTUDIO",
+        gearPianos: "Pianos",
+        gearPianosDetails: "Piano acústico<br>Piano eléctrico",
+        gearDrumsDetails: "Batería",
+        gearGuitarsDetails: "Guitarras acústicas, criollas y eléctricas<br>Amplificadores",
+        gearRecordingDetails: "Micrófonos<br>Programas de edición y mezcla",
+        approachEyebrow: "Con tiempo y atención",
+        approachTitle: "Tu proyecto, a tu manera.",
+        approachCopy: "Desde una primera idea hasta una sesión completa, Subtle es un espacio para trabajar con calma, probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.",
+        contactCopy: "Escribinos para contarnos cuál es tu proyecto actualmente.",
+        contactLabel: "Contactar a Subtle por WhatsApp al +54 11 4159 0433",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "Un espacio para escuchar mejor."
+      },
+      en: {
+        pageTitle: "Subtle — recording and rehearsal space",
+        description: "Subtle — a recording and rehearsal space with instruments and everything you need to write and professionally record your music.",
+        navLabel: "Main navigation",
+        homeLabel: "Subtle, home",
+        navContact: "Contact",
+        languageLabel: "Choose language",
+        heroCategory: "Recording and rehearsal space",
+        heroTagline: "rehearsal room",
+        heroManifesto: "A place for your music to inspire you.",
+        heroCopy: "A perfect space to write music, with instruments and everything you need to bring your music to a professional recording.",
+        heroCta: "Get in touch on WhatsApp",
+        heroNote: "Tell us what you’d like to record and we’ll plan it together.",
+        gearEyebrow: "Ready when you are",
+        gearTitle: "It all starts with a great take.",
+        gearIntro: "Instruments and tools to explore, record and find the sound that fits your project.",
+        gearKeys: "01 / KEYS",
+        gearRhythm: "02 / RHYTHM",
+        gearStrings: "03 / STRINGS",
+        gearRecording: "04 / RECORDING",
+        gearPianos: "Pianos",
+        gearPianosDetails: "Acoustic piano<br>Electric piano",
+        gearDrumsDetails: "Drum kit",
+        gearGuitarsDetails: "Acoustic, classical and electric guitars<br>Amplifiers",
+        gearRecordingDetails: "Microphones<br>Editing and mixing software",
+        approachEyebrow: "Time and care",
+        approachTitle: "Your project, your way.",
+        approachCopy: "From an early idea to a full session, Subtle is a place to work at your own pace, experiment and shape what you have in mind. Get in touch to talk about your project and arrange a visit.",
+        contactCopy: "Tell us what project you’re working on at the moment.",
+        contactLabel: "Contact Subtle on WhatsApp at +54 11 4159 0433",
+        contactButton: "+54 11 4159 0433",
+        footerLine: "A space to listen more closely."
+      }
+    };
+
+    function setLanguage(language) {
+      const selected = translations[language];
+      document.documentElement.lang = language;
+      document.title = selected.pageTitle;
+      document.querySelector('meta[name="description"]').content = selected.description;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.innerHTML = selected[element.dataset.i18n];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        const key = element.dataset.i18nAria;
+        element.setAttribute("aria-label", selected[key]);
+      });
+      document.querySelectorAll("[data-language]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.language === language));
+      });
+    }
+
+    document.querySelectorAll("[data-language]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+    setLanguage("es");
+  </script>
 </body>
 </html>
