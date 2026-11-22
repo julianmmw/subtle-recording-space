@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171915">
+  <meta name="description" content="Subtle — espacio de grabación equipado con piano, batería, guitarras y tecnología para registrar tu música con calidad profesional.">
+  <title>Subtle — espacio de grabación</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #171915;
+      --surface: #20221d;
+      --text: #f0eee6;
+      --muted: #aaa99d;
+      --line: #393a32;
+      --olive: #b6b995;
+      --clay: #c58f70;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--olive); outline-offset: 5px; }
+    .wrap { width: min(100% - 40px, 1080px); margin-inline: auto; }
+    .eyebrow {
+      color: var(--olive);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    header {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgb(240 238 230 / 9%);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .wordmark {
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+    .nav-link {
+      color: var(--muted);
+      font-size: .84rem;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    .hero {
+      min-height: 570px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-block: 90px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: min(66vw, 680px);
+      aspect-ratio: 1;
+      right: -9%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid rgb(182 185 149 / 12%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 52px rgb(182 185 149 / 3%), 0 0 0 104px rgb(182 185 149 / 2%);
+    }
+    .hero-content { max-width: 700px; }
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      max-width: 680px;
+      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 11vw, 7.5rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+    h1 span { color: var(--olive); font-style: italic; }
+    .hero-copy { max-width: 450px; margin-bottom: 32px; color: var(--muted); font-size: 1.03rem; }
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 0 20px;
+      border: 1px solid var(--olive);
+      border-radius: 2px;
+      background: var(--olive);
+      color: #1a1b16;
+      font-size: .88rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+    .button:hover { background: transparent; color: var(--text); }
+    .button svg { width: 18px; height: 18px; }
+    .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .77rem; }
+
+    section { padding-block: 82px; border-top: 1px solid var(--line); }
+    .section-heading { max-width: 600px; margin-bottom: 36px; }
+    h2 {
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 7vw, 3.7rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+    .section-intro { max-width: 490px; margin-bottom: 0; color: var(--muted); }
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .gear-item { min-height: 150px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .72rem; letter-spacing: .12em; }
+    .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
+    .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    .approach {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .approach p { max-width: 480px; margin: 0; color: var(--muted); }
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 34px;
+      background: var(--surface);
+    }
+    .contact h2 { margin-bottom: 8px; font-size: clamp(2rem, 6vw, 3rem); }
+    .contact p { margin-bottom: 0; color: var(--muted); }
+    .contact .button { flex: 0 0 auto; }
+    footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
+
+    @media (min-width: 700px) {
+      .gear-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .gear-item { min-height: 180px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 32px, 1080px); }
+      header { height: 66px; }
+      .hero { min-height: 570px; padding-block: 72px; }
+      .hero::after { width: 100vw; right: -45%; top: 20%; }
+      section { padding-block: 64px; }
+      .gear-item { min-height: 140px; padding: 18px 14px; }
+      .gear-number { margin-bottom: 20px; }
+      .approach { grid-template-columns: 1fr; gap: 14px; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
+      footer .wrap { flex-direction: column; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="wordmark" href="#inicio" aria-label="Subtle, inicio">subtle</a>
+      <a class="nav-link" href="#contacto">Contacto <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Espacio de grabación</p>
+        <h1 id="hero-title">Un lugar para que tu música <span>respire.</span></h1>
+        <p class="hero-copy">Un espacio cuidado, instrumentos listos y la tecnología necesaria para llevar tus ideas a una grabación profesional.</p>
+        <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L3.5 20l1.2-4.5a8.3 8.3 0 1 1 15.8-3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.8 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.8 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-1.1-.1-2.5-.8-3.8-1.9-1.1-.9-1.9-2.1-2.2-3.2-.2-.9 0-1.7.4-2.3.3-.4.6-.7.8-.9Z" fill="currentColor"/>
+          </svg>
+          Hablemos por WhatsApp
+        </a>
+        <span class="hero-note">Contanos qué querés grabar y lo pensamos juntos.</span>
+      </div>
+    </section>
+
+    <section id="equipamiento" aria-labelledby="gear-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">A mano, cuando lo necesitás</p>
+          <h2 id="gear-title">Todo empieza con una buena toma.</h2>
+          <p class="section-intro">Instrumentos y herramientas para explorar, grabar y encontrar el sonido de cada proyecto.</p>
+        </div>
+        <div class="gear-grid">
+          <article class="gear-item">
+            <span class="gear-number">01 / TECLAS</span>
+            <h3>Piano</h3>
+            <p>Un punto de partida para componer y grabar.</p>
+          </article>
+          <article class="gear-item">
+            <span class="gear-number">02 / RITMO</span>
+            <h3>Batería</h3>
+            <p>Lista para darle pulso a tus canciones.</p>
+          </article>
+          <article class="gear-item">
+            <span class="gear-number">03 / CUERDAS</span>
+            <h3>Guitarras</h3>
+            <p>Distintos colores para buscar tu sonido.</p>
+          </article>
+          <article class="gear-item">
+            <span class="gear-number">04 / ESTUDIO</span>
+            <h3>Grabación</h3>
+            <p>Tecnología y herramientas para registrar audio profesionalmente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="approach-title">
+      <div class="wrap approach">
+        <div>
+          <p class="eyebrow">Con tiempo y atención</p>
+          <h2 id="approach-title">Tu proyecto, a tu manera.</h2>
+        </div>
+        <p>Desde una primera idea hasta una sesión completa, Subtle es un espacio para trabajar con calma, probar y darle forma a lo que tenés en mente. Escribinos para conversar sobre tu proyecto y coordinar una visita.</p>
+      </div>
+    </section>
+
+    <section id="contacto" aria-labelledby="contact-title">
+      <div class="wrap contact">
+        <div>
+          <p class="eyebrow">El próximo paso</p>
+          <h2 id="contact-title">¿Qué querés grabar?</h2>
+          <p>Escribinos y armamos una sesión para tu proyecto.</p>
+        </div>
+        <a class="button" href="https://wa.me/541141590433" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Subtle por WhatsApp al +54 11 4159 0433">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L3.5 20l1.2-4.5a8.3 8.3 0 1 1 15.8-3.8Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.8 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4-.1.6.4.8 1.1 1.5 1.8 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-1.1-.1-2.5-.8-3.8-1.9-1.1-.9-1.9-2.1-2.2-3.2-.2-.9 0-1.7.4-2.3.3-.4.6-.7.8-.9Z" fill="currentColor"/>
+          </svg>
+          +54 11 4159 0433
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="wordmark">subtle</span>
+      <span>Un espacio para escuchar mejor.</span>
+    </div>
+  </footer>
+</body>
+</html>
