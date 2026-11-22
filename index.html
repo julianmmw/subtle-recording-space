@@ -8,14 +8,17 @@
   <title>Subtle — espacio de grabación y ensamble</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #171915;
-      --surface: #20221d;
-      --text: #f0eee6;
-      --muted: #aaa99d;
-      --line: #393a32;
-      --olive: #b6b995;
-      --clay: #c58f70;
+      color-scheme: light;
+      --bg: #f3e7d0;
+      --surface: #63764b;
+      --text: #30221d;
+      --muted: #6b594a;
+      --line: #d3bb94;
+      --olive: #536d49;
+      --clay: #bd4932;
+      --mustard: #e3aa3b;
+      --teal: #197f7b;
+      --pink: #ca5372;
       --serif: Georgia, "Times New Roman", serif;
       --sans: "Segoe UI", Arial, sans-serif;
     }
@@ -25,11 +28,29 @@
     body {
       margin: 0;
       background: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 18% 22%, rgb(104 69 36 / 5%) 0 1px, transparent 1.5px),
+        radial-gradient(ellipse at 76% 68%, rgb(104 69 36 / 4%) 0 1px, transparent 1.5px),
+        repeating-linear-gradient(0deg, transparent 0 5px, rgb(104 69 36 / 2%) 5px 6px);
+      background-size: 13px 11px, 17px 19px, auto;
       color: var(--text);
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      z-index: 10;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgb(81 54 35 / 11%) .55px, transparent .8px),
+        radial-gradient(circle, rgb(255 255 255 / 28%) .55px, transparent .8px);
+      background-size: 7px 9px, 11px 13px;
+      opacity: .3;
+      mix-blend-mode: multiply;
     }
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--olive); outline-offset: 5px; }
@@ -46,7 +67,7 @@
       height: 76px;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid rgb(240 238 230 / 9%);
+      border-bottom: 1px solid var(--line);
     }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .wordmark {
@@ -62,7 +83,7 @@
       text-decoration: none;
       transition: color .2s ease;
     }
-    .nav-link:hover { color: var(--text); }
+    .nav-link:hover { color: var(--clay); }
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .language-switch { display: flex; align-items: center; gap: 5px; }
     .language-switch button {
@@ -75,11 +96,11 @@
       background: transparent;
       cursor: pointer;
       font: inherit;
-      font-size: 1.05rem;
       line-height: 1;
       opacity: .6;
       transition: opacity .2s ease, border-color .2s ease;
     }
+    .language-switch button svg { width: 22px; height: 15px; border-radius: 1px; box-shadow: 0 0 0 1px rgb(48 34 29 / 18%); }
     .language-switch button:hover { opacity: 1; }
     .language-switch button[aria-pressed="true"] { border-color: var(--olive); opacity: 1; }
     .language-switch button:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; }
@@ -101,19 +122,20 @@
       right: -9%;
       top: 50%;
       transform: translateY(-50%);
-      border: 1px solid rgb(182 185 149 / 12%);
+      border: 1px solid rgb(189 73 50 / 20%);
       border-radius: 50%;
-      box-shadow: 0 0 0 52px rgb(182 185 149 / 3%), 0 0 0 104px rgb(182 185 149 / 2%);
+      box-shadow: 0 0 0 52px rgb(227 170 59 / 8%), 0 0 0 104px rgb(83 109 73 / 5%);
     }
     .hero-content { max-width: 700px; }
     h1, h2, p { margin-top: 0; }
     h1 {
       max-width: 680px;
       margin-bottom: 24px;
-      font-family: var(--serif);
+      color: var(--clay);
+      font-family: "Trebuchet MS", "Arial Rounded MT Bold", var(--sans);
       font-size: clamp(3.2rem, 11vw, 7.5rem);
-      font-weight: 400;
-      letter-spacing: -.055em;
+      font-weight: 800;
+      letter-spacing: -.065em;
       line-height: .98;
     }
     .hero-title { margin-bottom: 0; }
@@ -141,17 +163,57 @@
       border: 1px solid var(--olive);
       border-radius: 2px;
       background: var(--olive);
-      color: #1a1b16;
+      color: #30221d;
       font-size: .88rem;
       font-weight: 650;
       text-decoration: none;
       transition: background .2s ease, color .2s ease;
     }
-    .button:hover { background: transparent; color: var(--text); }
+    .button:hover { background: var(--bg); color: var(--text); }
     .button svg { width: 18px; height: 18px; }
     .hero-note { display: block; margin-top: 18px; color: var(--muted); font-size: .77rem; }
 
     section { padding-block: 82px; border-top: 1px solid var(--line); }
+    .groove-strip {
+      position: relative;
+      overflow: hidden;
+      padding-block: 30px;
+      border: 0;
+      background: var(--text);
+      color: var(--bg);
+    }
+    .groove-strip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(135deg, transparent 0 20px, rgb(227 170 59 / 12%) 20px 22px);
+      pointer-events: none;
+    }
+    .groove-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .groove-copy { max-width: 430px; margin: 0; color: #f3e7d0; font-family: var(--serif); font-size: 1.05rem; line-height: 1.45; }
+    .groove-strip .eyebrow { color: var(--mustard); }
+    .groove-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .genre-tag {
+      display: inline-flex;
+      min-height: 30px;
+      align-items: center;
+      padding: 3px 11px;
+      border-radius: 2px;
+      background: var(--mustard);
+      color: var(--text);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+    .genre-tag:nth-child(2) { background: var(--teal); color: #fff7e8; }
+    .genre-tag:nth-child(3) { background: var(--pink); color: #fff7e8; }
+    .genre-tag:nth-child(4) { background: var(--clay); color: #fff7e8; }
     .section-heading { max-width: 600px; margin-bottom: 36px; }
     h2 {
       margin-bottom: 12px;
@@ -165,10 +227,18 @@
     .gear-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
+      gap: 12px;
     }
-    .gear-item { min-height: 150px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .gear-item {
+      min-height: 150px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background:
+        radial-gradient(circle at 90% 10%, rgb(227 170 59 / 14%), transparent 48%),
+        rgb(255 250 239 / 55%);
+      box-shadow: 3px 4px 0 rgb(117 77 48 / 9%);
+    }
     .gear-number { display: block; margin-bottom: 26px; color: var(--clay); font-size: .72rem; letter-spacing: .12em; }
     .gear-item h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
     .gear-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.8; }
@@ -187,8 +257,12 @@
       gap: 28px;
       padding: 34px;
       background: var(--surface);
+      color: #f8edda;
+      box-shadow: 5px 6px 0 rgb(117 77 48 / 12%);
     }
-    .contact-copy { max-width: 500px; margin: 0; font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
+    .contact-copy { max-width: 500px; margin: 0; color: #f8edda; font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.5rem); line-height: 1.2; }
+    .contact .button { border-color: var(--mustard); background: var(--mustard); }
+    .contact .button:hover { background: transparent; color: #f8edda; }
     .contact .button { flex: 0 0 auto; }
     footer { padding-block: 28px; color: var(--muted); font-size: .76rem; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
@@ -207,6 +281,7 @@
       .gear-number { margin-bottom: 20px; }
       .approach { grid-template-columns: 1fr; gap: 14px; }
       .nav-actions { gap: 12px; }
+      .groove-inner { align-items: flex-start; flex-direction: column; gap: 14px; }
       .contact { align-items: flex-start; flex-direction: column; padding: 25px 20px; }
       footer .wrap { flex-direction: column; gap: 4px; }
     }
@@ -223,8 +298,25 @@
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
         <div class="language-switch" role="group" aria-label="Seleccionar idioma" data-i18n-aria="languageLabel">
-          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">🇦🇷</button>
-          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">🇬🇧</button>
+          <button type="button" data-language="es" aria-label="Español" title="Español" aria-pressed="true">
+            <svg viewBox="0 0 60 40" aria-hidden="true">
+              <rect width="60" height="40" fill="#fff"/>
+              <path d="M0 0h60v13.33H0zM0 26.67h60V40H0z" fill="#74acdf"/>
+              <circle cx="30" cy="20" r="4" fill="#f6b40e"/>
+            </svg>
+          </button>
+          <button type="button" data-language="en" aria-label="English" title="English" aria-pressed="false">
+            <svg viewBox="0 0 60 30" aria-hidden="true">
+              <defs><clipPath id="uk-flag-clip"><path d="M0 0h60v30H0z"/></clipPath></defs>
+              <g clip-path="url(#uk-flag-clip)">
+                <path fill="#012169" d="M0 0h60v30H0z"/>
+                <path stroke="#fff" stroke-width="6" d="m0 0 60 30M60 0 0 30"/>
+                <path stroke="#c8102e" stroke-width="2.4" d="m0 0 60 30M60 0 0 30"/>
+                <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/>
+                <path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/>
+              </g>
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
@@ -246,6 +338,21 @@
           <span data-i18n="heroCta">Hablemos por WhatsApp</span>
         </a>
         <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
+      </div>
+    </section>
+
+    <section class="groove-strip" aria-label="Referencias musicales" data-i18n-aria="grooveLabel">
+      <div class="wrap groove-inner">
+        <div>
+          <p class="eyebrow" data-i18n="grooveEyebrow">Un groove entre décadas</p>
+          <p class="groove-copy" data-i18n="grooveCopy">Ritmos cálidos de los 70, energía bailable de los 80 y espacio para que cada proyecto encuentre su pulso.</p>
+        </div>
+        <div class="groove-tags" aria-label="Disco, soul, pop y dance" data-i18n-aria="genreLabel">
+          <span class="genre-tag">DISCO</span>
+          <span class="genre-tag">SOUL</span>
+          <span class="genre-tag">POP</span>
+          <span class="genre-tag">DANCE</span>
+        </div>
       </div>
     </section>
 
@@ -322,6 +429,10 @@
         homeLabel: "Subtle, inicio",
         navContact: "Contacto",
         languageLabel: "Seleccionar idioma",
+        grooveLabel: "Referencias musicales",
+        genreLabel: "Disco, soul, pop y dance",
+        grooveEyebrow: "Un groove entre décadas",
+        grooveCopy: "Ritmos cálidos de los 70, energía bailable de los 80 y espacio para que cada proyecto encuentre su pulso.",
         heroCategory: "Espacio de grabación y ensamble",
         heroTagline: "rehearsal room",
         heroManifesto: "Un lugar para que tu música te inspire.",
@@ -355,6 +466,10 @@
         homeLabel: "Subtle, home",
         navContact: "Contact",
         languageLabel: "Choose language",
+        grooveLabel: "Musical influences",
+        genreLabel: "Disco, soul, pop and dance music",
+        grooveEyebrow: "A groove across decades",
+        grooveCopy: "Warm 70s rhythms, 80s dance energy, and room for every project to find its own pulse.",
         heroCategory: "Recording and rehearsal space",
         heroTagline: "rehearsal room",
         heroManifesto: "A place for your music to inspire you.",
