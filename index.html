@@ -61,8 +61,17 @@
       line-height: .98;
       text-decoration: none;
     }
-    .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+    .brand-lockup { display: inline-flex; align-items: baseline; gap: 9px; text-decoration: none; }
     .brand-lockup .wordmark { text-decoration: none; }
+    .brand-location {
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: clamp(.95rem, 2.8vw, 1.8rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1;
+      white-space: nowrap;
+    }
     .nav-link {
       color: var(--muted);
       font-size: .96rem;
@@ -223,6 +232,7 @@
     <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
       <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
         <span class="wordmark">Subtle!</span>
+        <span class="brand-location">Latin America</span>
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
