@@ -96,18 +96,14 @@
       overflow: hidden;
       padding-block: 90px;
     }
-    .hero::after {
-      content: "";
+    .hero-image {
+      display: block;
       position: absolute;
-      z-index: -1;
-      width: min(66vw, 680px);
-      aspect-ratio: 1;
-      right: -9%;
+      width: min(40%, 420px);
+      height: auto;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
-      border: 1px solid rgb(182 185 149 / 12%);
-      border-radius: 50%;
-      box-shadow: 0 0 0 52px rgb(182 185 149 / 3%), 0 0 0 104px rgb(182 185 149 / 2%);
     }
     .hero-content { max-width: 700px; }
     h1, h2, p { margin-top: 0; }
@@ -204,12 +200,15 @@
     @media (min-width: 700px) {
       .gear-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .gear-item { min-height: 180px; }
+      .hero-content { max-width: 54%; }
+    }
+    @media (max-width: 699px) {
+      .hero-image { display: none; }
     }
     @media (max-width: 600px) {
       .wrap { width: min(100% - 32px, 1080px); }
       header { height: 66px; }
       .hero { min-height: 570px; padding-block: 72px; }
-      .hero::after { width: 100vw; right: -45%; top: 20%; }
       section { padding-block: 64px; }
       .gear-item { min-height: 140px; padding: 18px 14px; }
       .gear-number { margin-bottom: 20px; }
@@ -259,6 +258,7 @@
         </a>
         <span class="hero-note" data-i18n="heroNote">Contanos qué querés grabar y lo pensamos juntos.</span>
       </div>
+      <img class="hero-image" src="vitrail-logo.png" alt="" aria-hidden="true">
     </section>
 
     <section id="equipamiento" aria-label="Instrumentos y equipamiento" data-i18n-aria="gearSectionLabel">
