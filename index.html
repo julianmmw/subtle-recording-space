@@ -58,8 +58,14 @@
     }
     .brand-lockup { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
     .brand-lockup .wordmark { text-decoration: none; }
-    .svg-assets { position: absolute; width: 0; height: 0; overflow: hidden; }
-    .vitrail-icon { display: block; width: 30px; height: 30px; flex: 0 0 auto; }
+    .brand-logo {
+      display: block;
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
     .nav-link {
       color: var(--muted);
       font-size: .84rem;
@@ -226,28 +232,11 @@
   </style>
 </head>
 <body>
-  <svg class="svg-assets" aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="vitrail-icon" viewBox="0 0 64 64">
-        <circle cx="32" cy="32" r="29" fill="#171915" stroke="#f0eee6" stroke-width="1.5"/>
-        <path d="M32 32V4A28 28 0 0 1 51.8 12.2Z" fill="#508e85" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32 51.8 12.2A28 28 0 0 1 60 32Z" fill="#d6a64f" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32h28A28 28 0 0 1 51.8 51.8Z" fill="#b85e64" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32 51.8 51.8A28 28 0 0 1 32 60Z" fill="#53749a" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32v28A28 28 0 0 1 12.2 51.8Z" fill="#82945c" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32 12.2 51.8A28 28 0 0 1 4 32Z" fill="#d07a4d" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32H4A28 28 0 0 1 12.2 12.2Z" fill="#85648f" stroke="#171915" stroke-width="1.4"/>
-        <path d="M32 32 12.2 12.2A28 28 0 0 1 32 4Z" fill="#b8aa72" stroke="#171915" stroke-width="1.4"/>
-        <circle cx="32" cy="32" r="5.5" fill="#f0eee6" stroke="#171915" stroke-width="1.4"/>
-        <circle cx="32" cy="32" r="2" fill="#bd7d55"/>
-      </symbol>
-    </defs>
-  </svg>
   <header>
     <nav class="nav wrap" aria-label="Navegación principal" data-i18n-aria="navLabel">
       <a class="brand-lockup" href="#inicio" aria-label="Subtle, inicio" data-i18n-aria="homeLabel">
         <span class="wordmark">Subtle</span>
-        <svg class="vitrail-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#vitrail-icon"/></svg>
+        <img class="brand-logo" src="vitrail-logo.png" alt="" aria-hidden="true">
       </a>
       <div class="nav-actions">
         <a class="nav-link" href="#contacto"><span data-i18n="navContact">Contacto</span> <span aria-hidden="true">↗</span></a>
@@ -338,7 +327,7 @@
     <div class="wrap">
       <span class="brand-lockup">
         <span class="wordmark">Subtle</span>
-        <svg class="vitrail-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#vitrail-icon"/></svg>
+        <img class="brand-logo" src="vitrail-logo.png" alt="" aria-hidden="true">
       </span>
       <span data-i18n="footerLine">Un espacio para escuchar mejor.</span>
     </div>
