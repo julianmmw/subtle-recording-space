@@ -302,7 +302,7 @@
         homeLabel: "Subtle, inicio",
         navContact: "Contacto",
         languageLabel: "Seleccionar idioma",
-        heroCategory: "Ensambles | Composición | Arreglos | Grabación | Mezcla<br>Contenido multimedia | Publishing",
+        heroCategory: "Ensambles | Composición | Arreglos<br/>Grabación | Mezcla | Contenido<br/>Publishing",
         heroManifesto: "Un lugar para que tu música te inspire.",
         heroCopy: "Llevamos tu sonido a una grabación artística natural y profesional con los métodos tradicionales.",
         heroCta: "Hablemos por WhatsApp",
@@ -422,6 +422,9 @@
         footerLine: "Allin uyarinakunaykupaq huk wasi."
       }
     };
+    for (const language of ["en", "pt", "fr", "de", "qu"]) {
+      translations[language] = { ...translations.es };
+    }
 
     function setLanguage(language) {
       const selected = translations[language];
